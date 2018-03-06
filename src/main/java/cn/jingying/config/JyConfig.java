@@ -1,11 +1,17 @@
 package cn.jingying.config;
 
 import cn.jingying.HelloController;
+import cn.jingying._MappingKit;
 import com.jfinal.config.*;
 import com.jfinal.kit.PropKit;
+import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
+import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.qyweixin.sdk.api.ApiConfig;
 import com.jfinal.qyweixin.sdk.api.ApiConfigKit;
 import com.jfinal.template.Engine;
+import org.beetl.core.GroupTemplate;
+import org.beetl.ext.jfinal3.JFinal3BeetlRenderFactory;
+
 
 public class JyConfig extends JFinalConfig{
 
@@ -32,19 +38,31 @@ public class JyConfig extends JFinalConfig{
 
 	public void configConstant(Constants me) {
 		PropKit.use("config.properties");
-		me.setDevMode(PropKit.getBoolean("devMode", false));
+		me.setDevMode(true);
 		me.setEncoding("utf-8");
+		JFinal3BeetlRenderFactory rf = new JFinal3BeetlRenderFactory();
+		rf.config();
+		me.setRenderFactory(rf);
+		GroupTemplate gt = rf.groupTemplate;
 		// ApiConfigKit 设为开发模式可以在开发阶段输出请求交互的 xml 与 json 数据
 		ApiConfigKit.setDevMode(me.getDevMode());
 	}
 
 	public void configRoute(Routes me) {
-		me.add("/", HelloController.class);
+		me.add("/", HelloController.class, "/");
 	}
 
 	public void configPlugin(Plugins me) {
-		// C3p0Plugin c3p0Plugin = new C3p0Plugin(PropKit.get("jdbcUrl"), PropKit.get("user"), PropKit.get("password").trim());
-		// me.add(c3p0Plugin);
+		DruidPlugin druidPlugin = new DruidPlugin(PropKit.get("jdbcUrl"), PropKit.get("user"), 
+			PropKit.get("password").trim());
+		me.add(druidPlugin);
+
+		// 配置ActiveRecord插件
+		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
+		arp.setShowSql(true);
+		// 所有映射在 MappingKit 中自动化搞定
+		_MappingKit.mapping(arp);
+		me.add(arp);
 
 		// EhCachePlugin ecp = new EhCachePlugin();
 		// me.add(ecp);
