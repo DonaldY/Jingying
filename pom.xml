@@ -55,7 +55,7 @@
     <dependency>
       <groupId>com.jfinal</groupId>
       <artifactId>jfinal</artifactId>
-      <version>3.3</version>
+      <version>3.2</version>
     </dependency>
 
     <dependency>
@@ -75,7 +75,6 @@
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>1.2.31</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>

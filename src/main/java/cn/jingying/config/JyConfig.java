@@ -1,8 +1,10 @@
 package cn.jingying.config;
 
 import cn.jingying.HelloController;
+import cn.jingying.LoginController;
 import cn.jingying._MappingKit;
 import com.jfinal.config.*;
+import com.jfinal.json.MixedJsonFactory;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
@@ -46,10 +48,13 @@ public class JyConfig extends JFinalConfig{
 		GroupTemplate gt = rf.groupTemplate;
 		// ApiConfigKit 设为开发模式可以在开发阶段输出请求交互的 xml 与 json 数据
 		ApiConfigKit.setDevMode(me.getDevMode());
+
+		me.setJsonFactory(new MixedJsonFactory());
 	}
 
 	public void configRoute(Routes me) {
 		me.add("/", HelloController.class, "/");
+		me.add("/wechatOAuth", LoginController.class, "/");
 	}
 
 	public void configPlugin(Plugins me) {
@@ -59,6 +64,7 @@ public class JyConfig extends JFinalConfig{
 
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
+		// 显示SQL语句
 		arp.setShowSql(true);
 		// 所有映射在 MappingKit 中自动化搞定
 		_MappingKit.mapping(arp);
