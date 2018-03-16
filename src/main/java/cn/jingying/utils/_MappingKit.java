@@ -1,5 +1,6 @@
-package cn.jingying;
+package cn.jingying.util;
 
+import cn.jingying.User;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 
 /**

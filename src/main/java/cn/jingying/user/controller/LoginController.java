@@ -1,4 +1,4 @@
-package cn.jingying;
+package cn.jingying.user.controller;
 
 import com.jfinal.core.Controller;
 import com.jfinal.qyweixin.sdk.api.*;

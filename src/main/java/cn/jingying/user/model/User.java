@@ -1,4 +1,4 @@
-package cn.jingying;
+package cn.jingying.user.domain;
 
 import com.jfinal.plugin.activerecord.Model;
 
