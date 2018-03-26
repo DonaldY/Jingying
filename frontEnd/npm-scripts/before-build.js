@@ -2,6 +2,7 @@ var fs = require('fs');
 var rimraf = require('rimraf');
 var dirVars = require('../webpack-config/base/dir-vars.config.js');
 
+/* 配合后端开发 生成并不在同一个不目录下 */
 // buildDir = './webapp'
 // ./webapp/fonts
 rimraf(dirVars.buildDir + '/fonts' , fs, function cb() {
