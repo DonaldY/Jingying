@@ -1,0 +1,166 @@
+.pop_menu_wrap {
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+}
+
+#show-pop-menu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    transition-property: bottom;
+    transition-duration: .7s;
+}
+
+.pop_menu_wrap .pop_menu_inner {
+    bottom: 0;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.pop_menu_inner .pop_menu_info {
+    height: 70px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 15px 15px 125px;
+    position: relative;
+}
+
+.pop_menu_info .pop_info_img {
+    bottom: 15px;
+    left: 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    position: absolute;
+}
+
+#pop-info-price {
+    color: #d93229;
+    margin-right: 6px;
+    font-size: 16px;
+    display: block;
+    float: left;
+    vertical-align: top;
+}
+
+#pop-menu-close {
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    right: 15px;
+    position: absolute;
+    text-align: center;
+    font-size: 25px;
+}
+
+.pop_menu_inner .pop_select_wrap {
+    padding: 10px 15px 15px;
+    background-color: #fff;
+}
+
+#pop-select-info {
+    overflow: auto;
+    max-height: 279px;
+}
+
+#pop-select-info .pop_select_title {
+    padding-bottom: 6px;
+    color: #707070;
+}
+
+#pop-select-ul .pop_select_li{
+    margin-bottom: 8px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.pop_select_li .pop_span {
+    line-height: 18px;
+    border: 1px solid #cacaca;
+    background-color: #fff;
+    padding: 6px 14px;
+    font-size: 16px;
+    display: inline-block;
+    word-break: break-all;
+    border-radius: 1px;
+}
+
+.pop_select_wrap .pop_select_num {
+    margin-top: 20px;
+}
+
+.pop_select_num .pop_select_title {
+    padding-bottom: 6px;
+}
+
+#pop-select-control {
+    width: 50px;
+    padding: 0 30px;
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+    text-align: center;
+    float: left;
+}
+
+.pop_select_control .disabled {
+    color: #ccc;
+}
+
+#control-num-sub, #control-num-add {
+    width: 30px;
+    height: 34px;
+    line-height: 34px;
+    top: 0;
+    color: #d93229;
+    font-family: serif;
+    font-size: 20px;
+    border: 1px solid #c4c4c4;
+    background-color: #fff;
+    position: absolute;
+}
+
+#pop-select-control .input_num {
+    width: 48px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 16px;
+    color: #323232;
+    border-top: 1px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+    text-align: center;
+}
+
+#control-stock {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #999;
+    height: 34px;
+    line-height: 34px;
+    float: left;
+}
+
+.pop_select_num .clear{
+    clear: both;
+}
+
+#control-btn-confirm {
+    background: #c60a1e;
+    color: #fff;
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+
