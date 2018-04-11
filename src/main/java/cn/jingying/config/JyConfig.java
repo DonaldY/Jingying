@@ -1,9 +1,13 @@
 package cn.jingying.config;
 
-import cn.jingying.HelloController;
-import cn.jingying.LoginController;
-import cn.jingying._MappingKit;
+import cn.jingying.address.controller.AddressController;
+import cn.jingying.index.controller.IndexController;
+import cn.jingying.order.controller.OrderController;
+import cn.jingying.user.controller.UserController;
+import cn.jingying.user.controller.WxOauth2Controller;
+import cn.jingying.utils._MappingKit;
 import com.jfinal.config.*;
+import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.json.MixedJsonFactory;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
@@ -53,8 +57,11 @@ public class JyConfig extends JFinalConfig{
 	}
 
 	public void configRoute(Routes me) {
-		me.add("/", HelloController.class, "/");
-		me.add("/wechatOAuth", LoginController.class, "/");
+		me.add("/", IndexController.class, "/WEB-INF/pages/index/");
+		me.add("/wechatOAuth", WxOauth2Controller.class, "/");
+		me.add("/user", UserController.class, "/WEB-INF/pages/user/");
+		me.add("/address", AddressController.class);
+		me.add("/center", OrderController.class, "/WEB-INF/pages/order/");
 	}
 
 	public void configPlugin(Plugins me) {
@@ -84,7 +91,7 @@ public class JyConfig extends JFinalConfig{
 	}
 
 	public void configHandler(Handlers me) {
-
+		me.add(new ContextPathHandler("ctx_path"));
 	}
 
 	@Override
