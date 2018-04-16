@@ -1,0 +1,75 @@
+﻿.p_footer_nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 0;
+    width: 100%;
+    max-width: 640px;
+    background-color: #f7f7f7;
+    height: 43px;
+    line-height: 43px;
+    border-top: 1px solid #ccc;
+}
+
+.p_footer_nav .btn_boxs {
+    width: 45%;
+    float: left;
+    display: box;
+    display: -webkit-box;
+}
+
+.btn_boxs .box_wrap {
+    height: 100%;
+    line-height: 20.5px;
+    color: #a0a0a0;
+    font-size: 12px;
+    position: relative;
+    float: left;
+    border-right: 1px solid #E6E6E6;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+}
+
+#btn-contact .contact_deco {
+    background-size: 18px 18px;
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+#btn-collect .collect_deco {
+    background-size: 18px 18px;
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+.p_footer_nav .btn_add_cart_wrap {
+    background-color: #fe7938;
+    color: #fff;
+    height: 100%;
+    line-height: 43px;
+    position: relative;
+    float: left;
+    width: 27.5%;
+}
+
+.p_footer_nav .btn_buy_now {
+    background-color: #c60a1e;
+    color: #fff;
+    height: 100%;
+    line-height: 43px;
+    position: relative;
+    float: left;
+    width: 27.5%;
+}

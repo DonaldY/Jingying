@@ -1,0 +1,16 @@
+﻿<header class="head_nav">
+  <div id="headNav" class="head_wrapper" >
+    <div class="head_bar" style="padding-left: 68px;top: auto;">
+      <a id="head_logo"></a>
+      <div class="head_login" id="go-center-btn">
+	<% if (session.currentUser == null) {%>
+	<img src="../../../../imgs/no-login.png" class="login_deco">
+        <b>登录</b>
+	<% } else { %>
+	<img src="${session.currentUser.headimgurl}" class="login_deco">
+	<% } %>
+      </div>
+    </div>
+    
+  </div>
+</header>

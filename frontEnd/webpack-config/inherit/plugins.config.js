@@ -2,8 +2,9 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
-var dirVars = require('./base/dir-vars.config.js');
-var pageArr = require('./base/page-entries.config.js');
+var dirVars = require('../base/dir-vars.config.js');
+var pageArr = require('../base/page-entries.config.js');
+
 
 var configPlugins = [
 
@@ -13,20 +14,42 @@ var configPlugins = [
 	jQuery: 'jquery',
 	'window.jQuery': 'jquery',
 	'window.$': 'jquery'
-	
     }),
+    
     /* 抽取出所有通用的部分 */
     new webpack.optimize.CommonsChunkPlugin({
-	name: 'js/commons/common',      // 需要注意的是，chunk的name不能相同！！！
-	filename: '[name].js',
+	name: 'commons/common',      // 需要注意的是，chunk的name不能相同！！！
+	filename: 'js/[name].js',
 	minChunks: 4
     }),
- 
-    /* 抽取出chunk的css */
-    new ExtractTextPlugin('css/[name].css'),
     
 ];
 
+/* 
+   为了更好配置多页面
+
+   一个模块下有多个页面
+
+   项目源码：
+   pages # src/pages/
+     ├─alert # 模块-1
+     |  └─alert
+     │      ├─alert.html
+     │      ├─alert.css
+     │      └─alert.js
+     └─index # 模块-2
+        ├─index # 子模块-1
+        └─login # 子模块-2
+
+    编译后：
+    WEB-INFO 
+      └─pages 
+         ├─alert 
+         │  └─index.html # 具体页面
+         └─index 
+             ├─index.html # 具体页面
+             └─login.html # 具体页面
+ */
 
 function isHtmlFile(str)  {  
    var objRegExp = /\.html/;
@@ -39,7 +62,7 @@ pageArr.forEach((page) => {
 	const htmlPlugin = new HtmlWebpackPlugin({
 	    filename: `/WEB-INF/pages/${page}.html`,
 	    template: path.resolve(dirVars.pagesDir, `./${page}.html`),
-	    chunks: ['js/commons/common', page], // 公共文件需先导入
+	    chunks: ['commons/common', page], // 公共文件需先导入
 	    xhtml: true
 	});
 	configPlugins.push(htmlPlugin);

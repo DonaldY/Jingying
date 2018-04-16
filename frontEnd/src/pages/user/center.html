@@ -7,10 +7,6 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <link href="../../../css/default.css" rel="stylesheet" type="text/css">
-    <link href="../../../fonts/font-style.css" rel="stylesheet" type="text/css">
-    <link href="../css/order.css" rel="stylesheet" type="text/css">
     
     <title>订单中心</title>
   </head>
@@ -19,19 +15,18 @@
     
     <header class="common_hd">
       <section class="hd_left">
-	<a href="#" class="hd_back"></a>
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
       </section>
       <h1 class="hd_title">订单中心</h1>
-      <section class="hd_block"></section>
+      <section class="hd_block">
+	<span id="user-info-set" style="width: 100%;text-align: center;">设置</span>
+      </section>
     </header>
 
-    <section class="user_info">
-      <a class="wechat_login_btn">
-	<span class="icon-wechat" style="font-size:38px;"></span>
-	<span class="login_font">微信登录</span>
-      </a>
-    </section>
+    
+    <%= require('html-loader!../../public-resource/components/top-nav/user/login/user-login-info.html') %>
 
+    
     <section class="user_order">
       <header class="order_me">
 	<p class="title">我的订单</p>
@@ -102,8 +97,7 @@
     <section class="me_copyright">
       <span>Donald 提供技术支持</span>
     </section>
-
-    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    
     <script type="text/javascript">
      
     </script>    

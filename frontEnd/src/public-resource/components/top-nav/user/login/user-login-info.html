@@ -1,0 +1,23 @@
+﻿<section class="user_info">
+  <% if (session.currentUser == null) {%>
+  
+  <a class="wechat_login_btn">
+    <span class="icon-wechat" style="font-size:38px;"></span>
+    <span class="login_font">微信登录</span>
+  </a>
+  
+  <% } else { %>
+
+  <section class="user_info_body">
+    <div class="user_info_wrap">
+      <span cl="user_info_img">
+	<img src="${session.currentUser.headimgurl}" class="user_info_img_deco">
+      </span>
+      <span class="user_info_nickname">
+	${session.currentuser.nickname}
+      </span>
+    </div>
+  </section>
+  
+  <% } %>
+</section>

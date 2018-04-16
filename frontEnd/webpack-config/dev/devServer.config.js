@@ -8,5 +8,5 @@ module.exports = {
     inline: true, // 可以监控js变化
     hot: true, // 热启动
     compress: true,
-    watchContentBase: false
+    overlay: true // eslint 在页面上显示
 };
