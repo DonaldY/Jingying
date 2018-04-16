@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-    publicPath: '../../',
+    publicPath: '/',
     contentBase: './build/',
     host: 'localhost',
     port: 8081, // д╛хо8080
