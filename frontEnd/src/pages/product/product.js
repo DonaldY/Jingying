@@ -20,8 +20,42 @@ var page = {
     $('#spec-select').click(function() {
       popMenuPage.showEvent();
     });
+
+    $('#p-imgs-info').click(function() {
+      $('#p-detail-info').removeClass('active_bottom');
+      $('#p-imgs-info').addClass('active_bottom');
+      $('.p_tab_spec').removeClass('active');
+      $('.p_tab_imgs').addClass('active');
+    });
+
+    $('#p-detail-info').click(function() {
+      $('#p-imgs-info').removeClass('active_bottom');
+      $('#p-detail-info').addClass('active_bottom');
+      $('.p_tab_imgs').removeClass('active');
+      $('.p_tab_spec').addClass('active');
+    });
+
+    $('btn-add-cart').click(function() {
+      if (isSelect()) {
+
+      } else {
+
+      }
+    });
+
+    $('btn-buy').click(function() {
+      if (isSelect()) {
+
+      } else {
+
+      }
+    });
   },
 };
+
+function isSelect() {
+
+}
 
 $(function() {
   page.init();

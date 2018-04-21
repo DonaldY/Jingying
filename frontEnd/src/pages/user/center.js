@@ -13,7 +13,7 @@ var page = {
 
   bindEvent: function() {
     $('#user-info-set').click(function() {
-      window.location.href = 'user/set';
+      window.location.href = 'user/setting';
     });
 
     $('.wechat_login_btn').click(function() {

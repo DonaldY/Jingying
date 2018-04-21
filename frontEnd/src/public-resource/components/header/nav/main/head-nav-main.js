@@ -11,7 +11,7 @@ var page = {
 
   bindEvent: function() {
     $('#go-center-btn').click(function() {
-      window.location.href = 'center';
+      window.location.href = 'user';
     });
   },
 };

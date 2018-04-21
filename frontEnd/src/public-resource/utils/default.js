@@ -1,12 +1,12 @@
-'use strict';
+﻿'use strict';
 
-const conf = {
+const config = {
   serverHost: '',
 };
 
 var _common = {
   request: function(param) {
-    var _this = this;
+    // var _this = this;
     $.ajax({
       type: param.method || 'get',
       url: param.url || '',
@@ -51,11 +51,8 @@ var _common = {
     return null;
   },
 
-  doLogin: function() {
-    window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
-  },
-  goHome: function() {
-    window.location.href = './index.html';
+  getServerUrl: function(path) {
+    return config.serverHost + path;
   },
 };
 

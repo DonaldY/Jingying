@@ -16,13 +16,6 @@ var configPlugins = [
 	'window.$': 'jquery'
     }),
     
-    /* 抽取出所有通用的部分 */
-    new webpack.optimize.CommonsChunkPlugin({
-	name: 'commons/common',      // 需要注意的是，chunk的name不能相同！！！
-	filename: 'js/[name].js',
-	minChunks: 4
-    }),
-    
 ];
 
 /* 

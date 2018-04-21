@@ -64,6 +64,7 @@
 .user_info_wrap .user_info_img {
     margin: 0 auto;
     width: 60px;
+    display: block;
 }
 
 .user_info_img .user_info_img_deco {

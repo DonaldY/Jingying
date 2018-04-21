@@ -1,4 +1,5 @@
 ﻿<section class="user_info">
+  
   <% if (session.currentUser == null) {%>
   
   <a class="wechat_login_btn">
@@ -10,11 +11,12 @@
 
   <section class="user_info_body">
     <div class="user_info_wrap">
-      <span cl="user_info_img">
+      <span class="user_info_img">
 	<img src="${session.currentUser.headimgurl}" class="user_info_img_deco">
       </span>
       <span class="user_info_nickname">
-	${session.currentuser.nickname}
+	${session.currentUser.nickname}
+	Donald
       </span>
     </div>
   </section>

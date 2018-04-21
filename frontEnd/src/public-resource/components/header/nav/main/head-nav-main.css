@@ -11,6 +11,10 @@
     background-color: #f7f7f7;
 }
 
+.head_wrapper b {
+    font-weight: normal;
+}
+
 .head_nav_fixed {
     position:fixed;
 }

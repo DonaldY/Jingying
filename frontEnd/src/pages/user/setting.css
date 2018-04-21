@@ -1,0 +1,93 @@
+.user_info_wrap {
+    margin-top: 10px;
+    padding: 0 15px;
+    background-color: #fff;
+}
+
+.user_info_wrap .editable:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-right: 4px;
+    margin-left: 10px;
+    border-bottom: 1px solid #9A9A9A;
+    border-right: 1px solid #9A9A9A;
+    border-radius: 2px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.user_info_wrap .capture {
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.user_info_wrap .flex_auto {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 0!important;
+    -ms-flex: 1 1 0!important;
+    flex: 1 1 0!important;
+}
+
+.user_info_wrap .info_wrap {
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: 16px;
+    color: #222;
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid #eee;
+}
+
+.user_info_wrap .info {
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #404040;
+}
+
+.user_info_wrap .info_img_wrap {
+    height: 80px;
+    line-height: 80px;
+}
+
+.info_img_wrap .pre_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: 0;
+}
+
+.user_info_wrap .info_nickname_wrap {
+    height: 52px;
+    line-height: 52px;
+}
+
+.user_info_wrap .info_tel_wrap {
+    height: 52px;
+    line-height: 52px;
+}
+
+#btn-quit {
+    margin: 20px 20px 0;
+    font-size: 16px;
+    color: #222;
+    background: #FAFAFA;
+    border: 1px solid #cacaca;
+    border-radius: 4px;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+}
+
+
