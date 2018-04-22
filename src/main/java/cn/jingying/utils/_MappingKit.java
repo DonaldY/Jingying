@@ -1,6 +1,10 @@
-package cn.jingying.util;
+package cn.jingying.utils;
 
-import cn.jingying.User;
+import cn.jingying.cart.model.Cart;
+import cn.jingying.category.model.Category;
+import cn.jingying.product.model.ProductSku;
+import cn.jingying.product.model.ProductSpu;
+import cn.jingying.user.model.User;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 
 /**
@@ -17,7 +21,11 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 public class _MappingKit {
 	
 	public static void mapping(ActiveRecordPlugin arp) {
-		arp.addMapping("s_user", "uid", User.class);
+		arp.addMapping("j_user", "id", User.class);
+		arp.addMapping("j_category", "id", Category.class);
+		arp.addMapping("j_cart", "id", Cart.class);
+		arp.addMapping("j_product_spu", "id", ProductSpu.class);
+		arp.addMapping("j_product_sku", "id", ProductSku.class);
 	}
 }
 
