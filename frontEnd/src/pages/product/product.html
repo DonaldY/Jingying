@@ -14,13 +14,35 @@
     <section class="p_info">
       
       <section class="p_info_wrap">
-	<article class="p_imgs_show">
-	  <div class="p_img_wrap">
-	    <img src="https://si.geilicdn.com/bj-pc-1224535927-1516072596543-1607023810_430_430.jpg?w=750&amp;h=750&amp;cp=1" class="img_deco">
-	  </div>
-	  <div id="img-nums">2/5</div>
-	</article>
+	<div id="p-info-item" class="swiper-container swiper-container-horizontal">
+	  <article class="p_imgs_show swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+	    <div class="p_img_wrap swiper-slide">
+	      <img src="https://si.geilicdn.com/bj-pc-1224535927-1516072596543-1607023810_430_430.jpg?w=750&amp;h=750&amp;cp=1" class="img_deco">
+	    </div>
 
+	    <div class="p_img_wrap swiper-slide">
+	      <img src="https://si.geilicdn.com/bj-pc-1224535927-1516072596543-1607023810_430_430.jpg?w=750&amp;h=750&amp;cp=1" class="img_deco">
+	    </div>
+
+	    <div class="p_img_wrap swiper-slide">
+	      <img src="https://si.geilicdn.com/bj-pc-1224535927-1516072596543-1607023810_430_430.jpg?w=750&amp;h=750&amp;cp=1" class="img_deco">
+	    </div>
+
+	    <div class="p_img_wrap swiper-slide">
+	      <img src="https://si.geilicdn.com/bj-pc-1224535927-1516072596543-1607023810_430_430.jpg?w=750&amp;h=750&amp;cp=1" class="img_deco">
+	    </div>
+
+	    <div class="p_img_wrap swiper-slide">
+	      <img src="https://si.geilicdn.com/bj-pc-1224535927-1516072596543-1607023810_430_430.jpg?w=750&amp;h=750&amp;cp=1" class="img_deco">
+	    </div>
+	    
+	    <!-- <div id="img-nums">2/5</div> -->
+	    
+	  </article>
+
+	</div>
+
+	
 	<div class="p_info_title_wrap">
 	  <div class="title_name_wrap">
 	    <h2 id="title-name" style="max-width:79%;">汉鼎鱼饵小药饵料野钓黑坑钓饵鲤鱼草鲫鱼钓鱼渔具用品拉丝粉鱼料</h2>
@@ -106,12 +128,14 @@
     <%= require('html-loader!../../public-resource/components/footer/nav/cart/footer-nav-cart.html') %>
 
     <%= require('html-loader!../../public-resource/components/side-menu/pop/pop-menu.html') %>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-     
-     
-    </script>    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <script>
+     var mySwiper = new Swiper('.swiper-container', {
+      
+     })
+    </script>
   </body>
 
   

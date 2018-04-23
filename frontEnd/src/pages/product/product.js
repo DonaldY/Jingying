@@ -7,6 +7,8 @@ require('../../public-resource/components/header/nav/main/head-nav-main.js');
 require('./product.css');
 require('../../public-resource/iconfont/font-style.css');
 
+require('../../../node_modules/swiper/dist/css/swiper.min.css');
+
 require('../../public-resource/components/footer/nav/cart/footer-nav-cart.js');
 var popMenuPage = require('../../public-resource/components/side-menu/pop/pop-menu.js');
 
