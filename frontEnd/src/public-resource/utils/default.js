@@ -1,7 +1,8 @@
-﻿'use strict';
+'use strict';
 
 const config = {
   serverHost: '',
+  FtpHost: 'http://image.jingying.com',
 };
 
 var _common = {

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "swiper": "^4.2.2",
     "webpack": "^3.8.1"
   },
   "devDependencies": {

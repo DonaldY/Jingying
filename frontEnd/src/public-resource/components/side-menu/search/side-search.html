@@ -13,43 +13,29 @@
 	<div class="classify_list_wrap">
 	  <ul>
 	    <li>
-	      <span class="li_title">管道配件</span>
+	      <span class="li_title">品牌</span>
 	      <ul>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
+		
+		<% for(brand in brandList) { %>
+		<li>${brand.name}</li>
+		<% } %>
+		
 	      </ul>
 	    </li>
 
+	    <% for(entry in map) {
+	         var name = entry.key;
+	         var list = entry.value;
+	    %>
 	    <li>
-	      <span class="li_title">管道配件</span>
+	      <span class="li_title">${name}</span>
 	      <ul>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
+		<% for (spu in list) { %>
+		  <li>${spu.name}</li>
+		<% } %>
 	      </ul>
 	    </li>
-
-	    <li>
-	      <span class="li_title">管道配件</span>
-	      <ul>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-		<li>45度弯头</li>
-	      </ul>
-	    </li>
+	    <% } %>
 	    
 	  </ul>
 	</div>

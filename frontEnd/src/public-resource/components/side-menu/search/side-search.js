@@ -12,6 +12,12 @@ var sideSearchPage = {
     $('#mask-area').click(this.hideEvent);
 
     $('#input-goods-search').keyup(this.cleanInputEvent);
+
+    $('.classify_list_wrap ul li ul li').each(function() {
+	  this.click(function() {
+	      alert($(this).text());
+	  });
+    });
   },
 
   showEvent: function() {

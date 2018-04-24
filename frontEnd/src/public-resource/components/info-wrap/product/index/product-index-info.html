@@ -1,0 +1,69 @@
+﻿<% for(entry in map) {
+     var name = entry.key;
+     var list = entry.value;
+%>
+<div class="J_component">
+  <div class="recommend_list list_block">
+    <span class="list_title">
+      <p class="block_content">${name}</p>
+    </span>
+    
+    <% for (spu in list) {
+         if (spuLP.odd && !spuLP.last) {
+    %>
+    <ul class="goods_list">
+      <div class="goods_container">
+	<li class="list_item">
+	  <a href="" class="item_link">
+	    <div class="img_wrapper">
+	      <div class="img_inner">
+		<img src="http://image.jingying.com${spu.main_image}">
+	      </div>
+	      <p class="goods_intro">${spu.name}</p>
+	    </div>
+	    <div class="goods_pri_wrapper">
+	      <p class="g_pri pt5 goods_pri_in">
+		<em class="symbol_money">¥</em>
+		<em class="cur_int">${parseInt(spu.min_price)}</em>
+		<em class="cur_point">.</em>
+		<em class="cur_dec">${parseInt(trunc(spu.min_price, 2) * 100) % 100}</em>
+	      </p>
+	      <p class="sold_out">销量9999</p>
+	      <div class="g_cart add_cart">
+		<span class="icon-add_cart" style="font-size:20px;"></span>
+	      </div>
+	    </div>
+	  </a>
+	</li>
+	<%} else if(spuLP.even) {%>
+	
+	<li class="list_item">
+	  <a href="" class="item_link">
+	    <div class="img_wrapper">
+	      <div class="img_inner">
+		<img src="http://image.jingying.com${spu.main_image}">
+	      </div>
+	      <p class="goods_intro">${spu.name}</p>
+	    </div>
+	    <div class="goods_pri_wrapper">
+	      <p class="g_pri pt5 goods_pri_in">
+		<em class="symbol_money">¥</em>
+		<em class="cur_int">${parseInt(spu.min_price)}</em>
+		<em class="cur_point">.</em>
+		<em class="cur_dec">${parseInt(trunc(spu.min_price, 2) * 100) % 100}</em>
+	      </p>
+	      <p class="sold_out">销量9999</p>
+	      <div class="g_cart add_cart">
+		<span class="icon-add_cart" style="font-size:20px;"></span>
+	      </div>
+	    </div>
+	  </a>
+	</li>
+      </div>
+    </ul>
+    <%} }%>
+    
+  </div>
+</div>
+
+<% } %>
