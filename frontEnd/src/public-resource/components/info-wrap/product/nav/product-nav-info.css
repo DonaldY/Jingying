@@ -1,0 +1,121 @@
+.p_info_wrap {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    position: relative;
+}
+
+#p-info-item {
+    width: 100%;
+    background-color: #7e7e7e;
+}
+
+.p_info_wrap .p_imgs_show {
+    width: 100%;
+    background-color: #7e7e7e;
+    position: relative;
+}
+
+.p_imgs_show .p_img_wrap {
+    
+}
+
+.p_img_wrap .img_deco {
+    width: 100%;
+}
+
+
+.p_imgs_show #img-nums {
+    position: absolute;
+    right: 15px;
+    font-size: 12px;
+    color: rgba(255,255,255,.8);
+    text-shadow: 1px 1px rgba(0,0,0,.8);
+    bottom: 15px;
+    height: 12px;
+    line-height: 12px;
+}
+
+
+
+.p_info_title_wrap .title_name_wrap {
+    position:relative;
+}
+
+.title_name_wrap #title-name {
+    font-size: 16px;
+    padding: 20px 15px 0;
+    color: #000;
+    font-family: 'Î¢ÈíÑÅºÚ';
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 21px;
+    word-break: normal;
+    font-weight: 700;
+}
+
+.title_name_wrap #share-by-link {
+    color: #9A9A9A;
+    padding: 3px 7px;
+    border-radius: 3px;
+    top: 5px;
+    right: 3px;
+    z-index: 2;
+    position: absolute;
+}
+
+#share-by-link .share_logo {
+    width: 21px;
+    height: 21px;
+    background: url(//s.geilicdn.com/p5/shop/20184/images/common/share.c2113288.png) no-repeat;
+    background-size: 18px;
+    margin: 14px auto 0;
+    display: block;
+    background-position-x: 2px;
+}
+
+#share-by-link .copy_link {
+    display: block;
+    font-size: 20px;
+    transform: scale(.5);
+    -ms-transform: scale(.5);
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -o-transform: scale(.5);
+}
+
+.p_info_title_wrap #price-wrap {
+    padding: 0;
+    margin: 0.7rem;
+    vertical-align: bottom;
+    position: relative;
+    line-height: .7rem;
+}
+
+#price-wrap #p-price {
+    overflow: visible;
+    padding: 0;
+    color: #D7200D;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    line-height: 1.2rem;
+}
+
+#p-price .money_sign {
+    font-size: 16px;
+    display: inline-block;
+    margin-top: .106rem;
+    margin-right: .16rem;
+}
+
+#p-price .price_str {
+    font-size: 24px;
+    margin-left: -.106rem;
+}
+
+.price_str .decimals {
+    margin-left: -0.4rem;
+    font-size: 18px;
+}

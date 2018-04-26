@@ -1,0 +1,31 @@
+/****** SPECIFICATION SELECT ******/
+.p_info #p-spec-select-wrap {
+    margin-top: .7rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+#p-spec-select-wrap #spec-select {
+    background-color: #fff;
+    padding: 1.2rem;
+    position: relative;
+}
+
+#spec-select .spec_title {
+    left: .7rem;
+    top: .56rem;
+    position: absolute;
+}
+
+#spec-select .spec_title_arrow {
+    right: 17px;
+    transform: rotate(-45deg);
+    width: 7px;
+    height: 7px;
+    border-right: 1px solid #CACACA;
+    border-bottom: 1px solid #CACACA;
+    position: absolute;
+    top: .95rem !important;
+}
+
+/****** END SPECIFICATION SELECT ******/

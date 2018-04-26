@@ -1,0 +1,40 @@
+﻿<section class="p_info_wrap">
+  <div id="p-info-item" class="swiper-container swiper-container-horizontal">
+    <article class="p_imgs_show swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+      
+      <% for (img in imgList) { %>
+      <div class="p_img_wrap swiper-slide">
+	<img src="http://image.jingying.com/${img}" class="img_deco">
+      </div>
+      <% } %>
+      
+      <!-- <div id="img-nums">2/5</div> -->
+      
+    </article>
+
+  </div>
+
+  
+  <div class="p_info_title_wrap">
+    <div class="title_name_wrap">
+      <h2 id="title-name" style="max-width:79%;">${product.name}</h2>
+      <div id="share-by-link">
+	<em class="share_logo"></em>
+	<em class="copy_link">链接</em>
+      </div>
+    </div>
+    <div id="price-wrap">
+      <span id="p-price">
+	<em class="money_sign">￥</em>
+	<em class="price_str">
+	  <em>${parseInt(product.min_price)}.</em>
+	  <em class="decimals">${parseInt(trunc(product.min_price, 2) * 100) % 100}</em>
+	  <em>-</em>
+	  <em>${parseInt(product.max_price)}.</em>
+	  <em class="decimals">${parseInt(trunc(product.max_price, 2) * 100) % 100}</em>
+	</em>
+      </span>
+    </div>
+  </div>
+  
+</section>

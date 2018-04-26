@@ -1,0 +1,92 @@
+/****** TAB ******/
+.p_info_detail {
+    margin-top: .7rem;
+    min-height: 100px;
+    background-color: white;
+}
+
+.p_info_detail .p_tab_hd {
+   
+}
+
+.p_tab_hd .p_tab_ul {
+    background-color: #fff;
+    border-bottom: 1px solid #f4f4f4;
+    border-top: 0;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+}
+
+.p_tab_ul .p_tab_li {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding: 0px 20px;
+    line-height: 49px;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.p_tab_ul .active_bottom {
+    border-bottom: 1px solid #ff7200;
+}
+
+.p_tab_bd .p_tab_spec {
+    background-color: white;
+    display: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a0a0a0;
+    padding: 0 15px 20px 15px;
+    display: none;
+}
+
+.p_tab_bd .p_tab_imgs {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    display: none;
+}
+
+.p_tab_imgs .img_deco {
+    transition: all .5s ease;
+    display: block;
+}
+
+.p_tab_imgs .imgs_title {
+    
+}
+
+.p_tab_bd .active {
+    display: block;
+}
+
+.p_tab_spec .tab_spec_ul {
+    
+}
+
+.tab_spec_ul>li {
+    padding: 2px 0px;
+    padding-top: 0;
+    margin-top: 16px;
+    border-bottom: 1px #f4f4f4 solid;
+    display: -webkit-box;
+}
+
+.tab_spec_ul .spec_li_name {
+    color: #a0a0a0;
+    width: 70px;
+    padding-right: 10px;
+}
+
+.tab_spec_ul .spec_li_val {
+    color: #000;
+}
+
+
+/****** END TABT ******/
