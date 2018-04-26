@@ -9,17 +9,11 @@ var _common = {
   request: function(param) {
     // var _this = this;
     $.ajax({
-      type: param.method || 'get',
       url: param.url || '',
       dataType: param.type || 'json',
       data: param.data || '',
       success: function(res) {
-        if (res.status === 0) {
-          typeof param.success === 'function' && param.success(res.data, res.msg);
-        } else if (res.status === 10) {
-        } else if (res.status === 1) {
-          typeof param.error === 'function' && param.error(res.msg);
-        }
+
       },
       error: function(err) {
         typeof param.error === 'function' && param.error(err.statusText);
@@ -54,6 +48,16 @@ var _common = {
 
   getServerUrl: function(path) {
     return config.serverHost + path;
+  },
+
+  getUrlParam: function(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+    var result = window.location.search.substr(1).match(reg);
+    return result ? decodeURIComponent(result[2]) : null;
+  },
+
+  getFtpHost: function() {
+    return config.FtpHost;
   },
 };
 

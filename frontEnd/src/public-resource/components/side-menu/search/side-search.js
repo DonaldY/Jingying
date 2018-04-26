@@ -4,6 +4,7 @@ require('./side-search.css');
 require('../../../iconfont/font-style.css');
 
 var sideSearchPage = {
+
   init: function() {
     this.bindEvent();
   },
@@ -11,12 +12,18 @@ var sideSearchPage = {
   bindEvent: function() {
     $('#mask-area').click(this.hideEvent);
 
-    $('#input-goods-search').keyup(this.cleanInputEvent);
+    $('.classify_list_wrap ul li ul li').click(function() {
+      var keyword = $(this).text();
+      $('#input-goods-search').val(keyword);
+    });
 
-    $('.classify_list_wrap ul li ul li').each(function() {
-	  this.click(function() {
-	      alert($(this).text());
-	  });
+    $('#btn-goods-search').click(function() {
+      var keyword = $('#input-goods-search').val();
+      if (keyword) {
+        window.location.href = './product/search?keyword=' + keyword;
+      } else {
+        alert('没有值 不跳转');
+      }
     });
   },
 
@@ -49,14 +56,6 @@ var sideSearchPage = {
     }, 1300);
   },
 
-  cleanInputEvent: function() {
-    var text = $.trim($('#input-goods-search').val());
-    if (text) {
-      $('#search-clear').show();
-    } else {
-      $('#search-clear').hide();
-    }
-  },
 };
 
 module.exports = sideSearchPage;
