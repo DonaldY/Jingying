@@ -53,7 +53,7 @@ var page = {
     var liList = '';
     for (var i = 0; i < list.length; ++i) {
       var liStr = "<li class='list_item'><a class='list_item_link' href='";
-      liStr += util.getServerUrl('/Jingying/product/detail/id=' + list[i].id) + "'>";
+      liStr += util.getServerUrl('/Jingying/product/detail?id=' + list[i].id) + "'>";
       liStr += "<div class='img_wrap'><img src='";
       liStr += util.getFtpHost() + list[i].main_image + "' style='opacity:1;'></div>";
       liStr += "<div class='item_content'><p class='item_name'>" + list[i].name + '</p>';
