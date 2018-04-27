@@ -11,6 +11,10 @@ var popMenuPage = {
 
   bindEvent: function() {
     $('#pop-menu-close').click(this.hideEvent);
+
+    $('.pop_select_li').click(function() {
+      $(this).addClass('curr_sku').siblings().removeClass('curr_sku');
+    });
   },
 
   showEvent: function() {
@@ -40,6 +44,14 @@ var popMenuPage = {
       $('#pop-menu').css('transition', '');
       $('#pop-menu').hide();
     }, 1300);
+  },
+
+  loadSpec: function() {
+
+  },
+
+  confirm: function() {
+
   },
 };
 

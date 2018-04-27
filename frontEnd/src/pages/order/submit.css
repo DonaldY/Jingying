@@ -15,15 +15,8 @@
 }
 
 .addre_ul .addre_li {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-bottom: 1px solid #5d5d5d;
+    height: 20px;
     top: 50%;
-    right: 17px;
-    margin-top: -4px;
-    position: absolute;
-    transform: rotate(-45deg);
 }
 
 .addre_ul .addre_icon_desc {

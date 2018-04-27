@@ -10,9 +10,10 @@ var page = {
 
   bindEvent: function() {
     $('#spec-select').click(function() {
-	  popMenuPage.showEvent();
+      popMenuPage.showEvent();
     });
   },
+
 };
 
 $(function() {

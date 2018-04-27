@@ -80,11 +80,16 @@
     margin-bottom: 8px;
     margin-right: 8px;
     display: inline-block;
+    border: 1px solid #cacaca;
+}
+
+#pop-select-ul .curr_sku {
+    border-color: #c60a1e;
+    color: #c60a1e;
 }
 
 .pop_select_li .pop_span {
     line-height: 18px;
-    border: 1px solid #cacaca;
     background-color: #fff;
     padding: 6px 14px;
     font-size: 16px;

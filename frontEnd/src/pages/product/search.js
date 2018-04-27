@@ -5,7 +5,7 @@ require('../../public-resource/components/common/default.css');
 
 require('../../public-resource/components/header/search/head-search.js');
 
-var productServer = require('../../public-resource/utils/server/product-service.js');
+// var productServer = require('../../public-resource/utils/server/product-service.js');
 const util = require('../../public-resource/utils/default.js');
 
 var page = {
@@ -29,17 +29,19 @@ var page = {
     var _this = this;
 
     $.ajax({
-    	url: '/Jingying/product/ajaxProductList',
-    	data: listParam,
-    	dataType: 'json',
-    	success: function(result) {
-	    var spuList = result.list;
-	    var liStr = _this.jointLi(spuList);
-	    $('.list_wrap').append(liStr);
-	    listParam.pageNumber++;
-    	},
-    	error: function(error) {
-    	    alert('error');
+      url: '/Jingying/product/ajaxProductList',
+      data: listParam,
+      dataType: 'json',
+      success: function(result) {
+        var spuList = result.list;
+        var liStr = _this.jointLi(spuList);
+        $('.list_wrap').append(liStr);
+        listParam.pageNumber++;
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        alert(XMLHttpRequest.status);
+        alert(XMLHttpRequest.readyState);
+        alert(textStatus);
       },
     });
 
