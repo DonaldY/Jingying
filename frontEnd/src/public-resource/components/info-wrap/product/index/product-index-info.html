@@ -1,6 +1,6 @@
 ﻿<% for(entry in map) {
-     var name = entry.key;
-     var list = entry.value;
+var name = entry.key;
+var list = entry.value;
 %>
 <div class="J_component">
   <div class="recommend_list list_block">
@@ -9,7 +9,7 @@
     </span>
     
     <% for (spu in list) {
-         if (spuLP.odd && !spuLP.last) {
+    if (spuLP.odd && !spuLP.last) {
     %>
     <ul class="goods_list">
       <div class="goods_container">
@@ -30,7 +30,7 @@
 	      </p>
 	      <p class="sold_out">销量9999</p>
 	      <div class="g_cart add_cart">
-		<span class="icon-add_cart" style="font-size:20px;"></span>
+		<span class="icon-add_cart" style="font-size:20px;" data-spuId="${spu.id}"></span>
 	      </div>
 	    </div>
 	  </a>
@@ -38,7 +38,7 @@
 	<%} else if(spuLP.even) {%>
 	
 	<li class="list_item">
-	  <a href="" class="item_link">
+	  <a href="${ctx_path}/product/detail?id=${spu.id}" class="item_link">
 	    <div class="img_wrapper">
 	      <div class="img_inner">
 		<img src="http://image.jingying.com${spu.main_image}">
@@ -54,7 +54,7 @@
 	      </p>
 	      <p class="sold_out">销量9999</p>
 	      <div class="g_cart add_cart">
-		<span class="icon-add_cart" style="font-size:20px;"></span>
+		<span class="icon-add_cart" style="font-size:20px;" data-spuId="${spu.id}"></span>
 	      </div>
 	    </div>
 	  </a>
