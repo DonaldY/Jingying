@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html>
+  <head>
+    
+    <%= require('html-loader!../../public-resource/components/header/meta/common-meta.html') %>
+    <title>收银台</title>
+
+  </head>
+
+  
+  <body ontouchstart>
+
+    
+    <header class="common_hd">
+      <section class="hd_left">
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
+      </section>
+      <h1 class="hd_title">收银台</h1>
+      <section class="hd_block">
+      </section>
+    </header>
+
+
+    <div class="pay_info_wrap">
+      <div class="pay_info_container">
+        <p class="pay_info_p1">支付金额</p>
+	<p class="pay_info_price">
+          <span id="final-price">￥115.18</span>
+        </p>
+        <p class="pay_info_p1" id="item-title">商品名称：酒米窝料鲫鱼野钓...</p>
+      </div>
+      
+      <ul class="pay_way_list">
+	<li class="pay_way_card">
+	  <img src="" class="pay_way_logo">
+	  <h2>支付宝</h2>
+	  <span class="select"></span>
+	</li>
+      </ul>
+      
+      <button id="pay-now">立即支付</button>
+    </div>
+    
+    <footer class="pay_info_footer">
+      <a href="#" data-spider-action-name="支付常见问题">支付常见问题</a>
+      <p>版权所有©2017-2018 Donald</p>
+    </footer>
+    
+  </body>
+
+  
+</html>

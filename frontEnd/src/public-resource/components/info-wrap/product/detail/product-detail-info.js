@@ -1,5 +1,7 @@
 'use strict';
 
+require('./product-detail-info.css');
+
 var page = {
   init: function() {
     this.bindEvent();

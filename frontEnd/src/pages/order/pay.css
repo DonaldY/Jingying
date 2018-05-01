@@ -1,0 +1,108 @@
+/*** PAY INFO  ***/
+.pay_info_wrap {
+    text-align: center;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.pay_info_wrap .pay_info_container {
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 100%;
+    height: 120px;
+    background: #fff;
+    text-align: center;
+    color: #9a9a9a;
+    display: block;
+}
+
+.pay_info_container .pay_info_p1 {
+    font-size: 16px;
+    line-height: .6rem;
+    color: #404040;
+}
+
+.pay_info_container .pay_info_price {
+    font-size: 30px;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    color: #404040;
+    font-weight: 500;
+    margin-bottom: .106667rem;
+}
+
+.pay_info_wrap .pay_way_list {
+    margin: 0;
+    padding: 0 0 0 .533333rem;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    text-align: left;
+}
+
+.pay_way_list li {
+    position: relative;
+    height: 2.026667rem;
+    padding: .466667rem .8rem .44rem 1.2rem;
+    color: #9a9a9a;
+    line-height: .533333rem;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.pay_way_list .pay_way_card {
+    
+}
+
+.pay_way_card .pay_way_logo {
+
+}
+
+.pay_way_card h2 {
+    margin-top: .266667rem;
+    color: #404040;
+    line-height: .666667rem;
+    font-size: 14px;
+}
+
+.pay_way_list span {
+    display: block;
+    position: absolute;
+    top: .733333rem;
+    right: .4rem;
+    width: .56rem;
+    height: .56rem;
+}
+
+#pay-now {
+    width: 93%;
+    background: #09bb07;
+    color: #fff;
+    margin: .666667rem auto;
+    border: 0;
+    border-radius: .066667rem;
+    font-size: .426667rem;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    display: block;
+    text-align: center;
+}
+
+.pay_info_footer {
+    font-size: 12px;
+    width: 100%;
+    margin: .666667rem auto 1.08rem;
+    text-align: center;
+    color: #9a9a9a;
+}
+
+.pay_info_footer a {
+    line-height: .533333rem;
+    margin-bottom: .133333rem;
+    color: #1177d0;
+}
+
+.pay_info_footer p {
+    line-height: .6rem;
+}
+
+/*** END PAY INFO  ***/
