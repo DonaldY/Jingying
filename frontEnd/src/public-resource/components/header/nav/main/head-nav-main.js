@@ -10,9 +10,7 @@ var page = {
   },
 
   bindEvent: function() {
-    $('#go-center-btn').click(function() {
-      window.location.href = 'user';
-    });
+
   },
 };
 
