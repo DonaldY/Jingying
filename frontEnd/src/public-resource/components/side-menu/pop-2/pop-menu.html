@@ -5,7 +5,7 @@
 	<img width="100" height="100" class="pop_info_img" src="https://si.geilicdn.com/bj-pc-1224535927-1516072595934-2106055280_430_430.jpg?w=110&amp;h=110&amp;cp=1">
 	<span class="pop_info_price">
 	  <span>￥</span>
-	  <span id="pop-info-price"></span>
+	  <span id="pop-info-price">${productSpu.min_price}-${productSpu.max_price}</span>
 	</span>
 	<div id="pop-menu-close" class="icon-close-pop">&nbsp;</div>
       </div>
@@ -14,18 +14,22 @@
 	<div id="pop-select-info">
 	  <p class="pop_select_title">型号</p>
 	  <ul id="pop-select-ul">
-	    
+	    <% for (sku in skuList) { %>
+	    <li class="pop_select_li" data-skuId="${sku.id}" data-price="${sku.price}" data-stock="${sku.stock}">
+	      <span class="pop_span">${sku.spec_name}</span>
+	    </li>
+	    <% } %>
 	  </ul>
 	</div>
 	<div class="pop_select_num">
 	  <p class="pop_select_title">数量</p>
 	  <div id="pop-select-control">
 	    <em id="control-num-sub" style="left: 0;">-</em>
-	    <input type="" name="product_num" id="product_num" class="input_num" value="1">
+	    <input type="text" name="product_num" id="product-num" class="input_num" value="1">
 	    <em id="control-num-add" style="right: 0;">+</em>
 	  </div>
 	  <div class="control_stock">
-	    库存<span id="control-stock"></span>件
+	    库存<span id="control-stock" data-totalStock="${productSpu.stock}">${productSpu.stock}</span>件
 	  </div>
 	  <div class="clear"></div>
 	</div>

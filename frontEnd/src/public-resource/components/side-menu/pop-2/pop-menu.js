@@ -6,18 +6,84 @@ require('../../../../../node_modules/css-ripple-effect/dist/ripple.min.css');
 
 var popMenuPage = {
 
-  bindEvent: function() {
-    $('#pop-menu-close').click(this.hideEvent);
+  init: function() {
+    this.bindEvent();
   },
 
-  showEvent: function(spuId, mainImage) {
-    $('.pop_info_img').attr('src', 'http://image.jingying.com/' + mainImage);
-    this.loadSpec(spuId);
-    this.bindEvent();
+  bindEvent: function() {
+    $('#pop-menu-close').click(this.hideEvent);
 
+    $('.pop_select_li').click(function() {
+      $(this).addClass('curr_sku').siblings().removeClass('curr_sku');
+
+      var price = parseInt($(this).attr('data-price'));
+      $('#pop-info-price').text(price);
+
+      var stock = parseInt($(this).attr('data-stock'));
+      $('#control-stock').text(stock);
+    });
+
+    var _this = this;
+    $('#control-num-add').click(function() {
+      if (!_this.isSelectSku()) {
+        alert('请选择规格');
+        return;
+      }
+
+      var num = parseInt($('#product-num').val());
+      var maxNum = parseInt($('.curr_sku').attr('data-stock'));
+      if (num + 1 > maxNum) {
+        $('#product-num').val(maxNum);
+        alert('超出库存数量' + maxNum);
+      } else {
+        num++;
+        $('#product-num').val(num);
+      }
+    });
+
+    $('#control-num-sub').click(function() {
+      if (!_this.isSelectSku()) {
+        alert('请选择规格');
+        return;
+      }
+
+      var num = parseInt($('#product-num').val());
+      if (num - 1 <= 0) {
+        alert('客官至少买一件嘛');
+      } else {
+        num--;
+        $('#product-num').val(num);
+      }
+    });
+
+    $('#product-num').bind('propertychange change', function() {
+      var num = parseInt($(this).val());
+      var maxNum = parseInt($('.curr_sku').attr('data-stock'));
+      if (!_this.isSelectSku()) {
+        alert('请选择规格');
+      } else if (isNaN(num)) {
+        alert('数量必须为数字');
+        $(this).val(1);
+      } else if (num >= maxNum) {
+        alert('超出库存数量');
+        $(this).val(maxNum);
+      } else if (num <= 1) {
+        alert('客官至少买一件嘛');
+        $(this).val(1);
+      }
+    });
+
+    $('#control-btn-confirm').click(function() {
+      var skuName = $('.curr_sku .pop_span').text();
+      $('#spec-title').text('已选择 ' + skuName);
+      _this.hideEvent();
+    });
+  },
+
+  showEvent: function() {
     $('#pop-menu').show();
     $('#pop-menu').css('opacity', '1');
-    $('#pop-menu').css('transition', 'opacity 0.4s ease 0.01s');
+    $('#pop-menu').css('transition', 'opacity 0.2s ease 0.01s');
     setTimeout(function() {
       $('#show-pop-menu').css('bottom', '0');
     }, 500);
@@ -38,50 +104,36 @@ var popMenuPage = {
     }, 1100);
   },
 
-  loadSpec: function(_spuId) {
+  addNum: function() {
     var _this = this;
-    $.ajax({
-      url: '/Jingying/product/ajaxSkuList',
-      data: {spuId: _spuId},
-      dataType: 'json',
-      success: function(result) {
-        $('#pop-select-ul li').remove();
-        var liStr = _this.jointLi(result);
-        $('#pop-select-ul').append(liStr);
-
-        $('.pop_select_li').click(function() {
-          $(this).addClass('curr_sku').siblings().removeClass('curr_sku');
-
-          var price = $(this).attr('data-price');
-          $('#pop-info-price').text(price);
-
-          var stock = $(this).attr('data-stock');
-          $('#control-stock').text(stock);
-        });
-      },
-      error: function(XMLHttpRequest, textStatus, errorThrown) {
-        // alert(XMLHttpRequest.status);
-        // alert(XMLHttpRequest.readyState);
-        // alert(textStatus);
-      },
-    });
-  },
-
-  jointLi: function(list) {
-    var liList = '';
-    for (var i = 0; i < list.length; ++i) {
-      var liStr = "<li class='pop_select_li' data-skuId='" + list[i].id + "'";
-      liStr += " data-price='" + list[i].price + "'";
-      liStr += " data-stock='" + list[i].stock + "'>";
-      liStr += "<span class='pop_span'>" + list[i].spec_name + '</span>';
-      liStr += '</li>';
-      liList += liStr;
+    if (!_this.isSelectSku()) {
+      alert('请选择');
     }
-    return liList;
   },
-  confirm: function() {
+
+  inputNum: function() {
 
   },
+
+  isSelectSku: function() {
+    var flag = false;
+    $('#pop-select-ul li').each(function() {
+      if ($(this).hasClass('curr_sku')) {
+        flag = true;
+      }
+    });
+    return flag;
+  },
+
+  isNum: function() {
+    var num = $('product-num').val();
+    var reg = /^\+?[1-9][0-9]*$/;
+    if (reg.exec(num) == null || num === '') {
+      return false;
+    }
+    return true;
+  },
+
 };
 
 module.exports = popMenuPage;
