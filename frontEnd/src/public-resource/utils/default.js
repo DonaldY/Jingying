@@ -1,4 +1,7 @@
-'use strict';
+﻿'use strict';
+
+require('./layer-mobile/layer.css');
+const layer = require('./layer-mobile/layer.js');
 
 const config = {
   serverHost: '',
@@ -27,6 +30,14 @@ var _common = {
 
   errorTips: function(msg) {
     alert(msg || '');
+  },
+
+  formatTips: function(msg) {
+    var _msg = msg || '啊哦~ 貌似哪不对。。。';
+    layer.open({
+      content: _msg,
+      time: 1.5,
+    });
   },
 
   validate: function(value, type) {

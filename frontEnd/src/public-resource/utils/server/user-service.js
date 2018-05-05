@@ -6,7 +6,7 @@ var userServer = {
 
   login: function(userInfo, resolve, reject) {
     _util.request({
-      url: _util.getServerUrl('/user/login.do'),
+      url: _util.getServerUrl('/user/login'),
       data: userInfo,
       method: 'POST',
       success: resolve,
@@ -36,7 +36,7 @@ var userServer = {
 
   quit: function(resolve, reject) {
     _util.request({
-      url: _util.getServerUrl('/user/quit'),
+      url: _util.getServerUrl('user/quit'),
       method: 'POST',
       success: resolve,
       error: reject,
