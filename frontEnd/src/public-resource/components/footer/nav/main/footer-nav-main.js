@@ -12,12 +12,16 @@ var page = {
   },
 
   bindEvent: function() {
-    $('#btn-go-home').click(function() {
-      alert('btn-go-home');
+    $('#btn-go-contact').click(function() {
+      window.location.href = 'contact';
     });
 
-    $('#btn-go-category').click(function() {
+    $('#btn-go-cart').click(function() {
+      window.location.href = 'cart';
+    });
 
+    $('#btn-go-me').click(function() {
+      window.location.href = 'user';
     });
   },
 };

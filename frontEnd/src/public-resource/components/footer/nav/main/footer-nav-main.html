@@ -17,7 +17,15 @@
     </li>
 
     <li class="classify ripple" id="btn-go-cart">
-      <span class="icon-cart icon-style"></span>
+      <div class="cart_wrap">
+	<span class="icon-cart icon-style">
+	  <% if (session.currentUser != null) {%>
+	  <span class="cart_num_wrap">
+	    <em id="cart-num"></em>
+	  </span>
+	  <% } %>
+	</span>
+      </div>
       <p>购物车</p>
     </li>
 

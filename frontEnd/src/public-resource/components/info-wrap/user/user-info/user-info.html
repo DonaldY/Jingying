@@ -1,0 +1,28 @@
+﻿<section class="user_info_wrap">
+  <div class="info_img_wrap info_wrap editable">
+    <span class="flex_auto">头像</span>
+
+    <% if (userInfo.headimgurl == null) {%>
+    <img class="pre_img" src="${require('../../../../imgs/no-login.png')}">
+    <% } else { %>
+    <img class="pre_img" src="${userInfo.headimgurl}">
+    <% } %>
+    <label for="capture"></label>
+  </div>
+  <div class="info_nickname_wrap info_wrap editable">
+    <span class="flex_auto">昵称</span>
+    <span id="nickname-txt" class="info">${userInfo.nickname}</span>
+  </div>
+  <div class="info_tel_wrap info_wrap editable">
+    <span class="flex_auto">手机号</span>
+
+    <% if (userInfo.phone == null) {%>
+    <span class="tel-num" class="info" style="color: #ccc;">还不知道你的手机号诶~</span>
+    <% } else { %>
+    <span class="tel-num" class="info">${userInfo.phone}</span>
+    <% } %>
+    
+  </div>
+</section>
+
+<div id="btn-quit" class="ripple"><a href="${ctx_path}/user/quit">退出登录</a></div>

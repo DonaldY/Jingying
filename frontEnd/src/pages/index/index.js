@@ -11,6 +11,8 @@ const sideSearch = require('../../public-resource/components/side-menu/search/si
 
 require('../../public-resource/components/footer/nav/main/footer-nav-main.js');
 
+require('../../public-resource/components/info-wrap/product/index/product-index-info.js');
+
 // const _util = require('../../public-resource/utils/default.js');
 
 var page = {

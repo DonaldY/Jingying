@@ -16,24 +16,8 @@
       </section>
     </header>
 
-
-    <section class="user_info_wrap">
-      <div class="info_img_wrap info_wrap editable">
-	<span class="flex_auto">头像</span>
-	<img class="pre_img" src="${require('../../public-resource/imgs/no-login.png')}">
-	<label for="capture"></label>
-      </div>
-      <div class="info_nickname_wrap info_wrap editable">
-	<span class="flex_auto">昵称</span>
-	<span id="nickname-txt" class="info">Donald</span>
-      </div>
-      <div class="info_tel_wrap info_wrap editable">
-	<span class="flex_auto">手机号</span>
-	<span class="tel-num" class="info">13951758623</span>
-      </div>
-    </section>
-
-    <div id="btn-quit" class="ripple">退出登录</div>
+	<%= require('html-loader!../../public-resource/components/info-wrap/user/user-info/user-info.html') %>
+    
     
   </body>
 
