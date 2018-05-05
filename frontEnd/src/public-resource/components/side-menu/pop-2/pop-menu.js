@@ -4,6 +4,8 @@ require('./pop-menu.css');
 require('../../../iconfont/font-style.css');
 require('../../../../../node_modules/css-ripple-effect/dist/ripple.min.css');
 
+const util = require('../../../utils/default.js');
+
 var popMenuPage = {
 
   init: function() {
@@ -16,7 +18,7 @@ var popMenuPage = {
     $('.pop_select_li').click(function() {
       $(this).addClass('curr_sku').siblings().removeClass('curr_sku');
 
-      var price = parseInt($(this).attr('data-price'));
+      var price = $(this).attr('data-price');
       $('#pop-info-price').text(price);
 
       var stock = parseInt($(this).attr('data-stock'));
@@ -26,15 +28,15 @@ var popMenuPage = {
     var _this = this;
     $('#control-num-add').click(function() {
       if (!_this.isSelectSku()) {
-        alert('请选择规格');
+        util.formatTips('请选择规格');
         return;
       }
 
       var num = parseInt($('#product-num').val());
       var maxNum = parseInt($('.curr_sku').attr('data-stock'));
       if (num + 1 > maxNum) {
+        util.formatTips('超出库存数量');
         $('#product-num').val(maxNum);
-        alert('超出库存数量' + maxNum);
       } else {
         num++;
         $('#product-num').val(num);
@@ -43,13 +45,13 @@ var popMenuPage = {
 
     $('#control-num-sub').click(function() {
       if (!_this.isSelectSku()) {
-        alert('请选择规格');
+        util.formatTips('请选择规格');
         return;
       }
 
       var num = parseInt($('#product-num').val());
       if (num - 1 <= 0) {
-        alert('客官至少买一件嘛');
+        util.formatTips('客官至少买一件嘛');
       } else {
         num--;
         $('#product-num').val(num);
@@ -60,15 +62,15 @@ var popMenuPage = {
       var num = parseInt($(this).val());
       var maxNum = parseInt($('.curr_sku').attr('data-stock'));
       if (!_this.isSelectSku()) {
-        alert('请选择规格');
+        util.formatTips('请选择规格');
       } else if (isNaN(num)) {
-        alert('数量必须为数字');
+        util.formatTips('数量必须为数字');
         $(this).val(1);
       } else if (num >= maxNum) {
-        alert('超出库存数量');
+        util.formatTips('超出库存数量');
         $(this).val(maxNum);
       } else if (num <= 1) {
-        alert('客官至少买一件嘛');
+        util.formatTips('客官至少买一件嘛');
         $(this).val(1);
       }
     });
@@ -104,17 +106,6 @@ var popMenuPage = {
     }, 1100);
   },
 
-  addNum: function() {
-    var _this = this;
-    if (!_this.isSelectSku()) {
-      alert('请选择');
-    }
-  },
-
-  inputNum: function() {
-
-  },
-
   isSelectSku: function() {
     var flag = false;
     $('#pop-select-ul li').each(function() {
@@ -123,15 +114,6 @@ var popMenuPage = {
       }
     });
     return flag;
-  },
-
-  isNum: function() {
-    var num = $('product-num').val();
-    var reg = /^\+?[1-9][0-9]*$/;
-    if (reg.exec(num) == null || num === '') {
-      return false;
-    }
-    return true;
   },
 
 };
