@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 require('./layer-mobile/layer.css');
 const layer = require('./layer-mobile/layer.js');
@@ -15,6 +15,9 @@ var _common = {
       url: param.url || '',
       dataType: param.type || 'json',
       data: param.data || '',
+      beforeSend: function() {
+
+      },
       success: function(res) {
 
       },
@@ -28,9 +31,15 @@ var _common = {
     alert(msg || '');
   },
 
-  errorTips: function(msg) {
-    alert(msg || '');
-  },
+    errorTips: function(msg) {
+	var _msg = msg || '救命啊~';
+	layer.open({
+	    content: msg,
+	    skin: 'msg',
+	    time: 2,
+	});
+	alert(msg || '');
+    },
 
   formatTips: function(msg) {
     var _msg = msg || '啊哦~ 貌似哪不对。。。';

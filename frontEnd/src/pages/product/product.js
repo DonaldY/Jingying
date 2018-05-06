@@ -19,27 +19,9 @@ var page = {
   },
 
   bindEvent: function() {
-    $('btn-add-cart').click(function() {
-      if (isSelect()) {
 
-      } else {
-
-      }
-    });
-
-    $('btn-buy').click(function() {
-      if (isSelect()) {
-
-      } else {
-
-      }
-    });
   },
 };
-
-function isSelect() {
-
-}
 
 $(function() {
   page.init();
