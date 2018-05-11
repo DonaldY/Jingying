@@ -4,7 +4,7 @@ require('./layer-mobile/layer.css');
 const layer = require('./layer-mobile/layer.js');
 
 const config = {
-  serverHost: '',
+  serverHost: '/Jingying',
   FtpHost: 'http://image.jingying.com',
 };
 
@@ -31,15 +31,14 @@ var _common = {
     alert(msg || '');
   },
 
-    errorTips: function(msg) {
-	var _msg = msg || '救命啊~';
-	layer.open({
-	    content: msg,
-	    skin: 'msg',
-	    time: 2,
-	});
-	alert(msg || '');
-    },
+  errorTips: function(msg) {
+    var _msg = msg || '救命啊~';
+    layer.open({
+      content: _msg,
+      skin: 'msg',
+      time: 2,
+    });
+  },
 
   formatTips: function(msg) {
     var _msg = msg || '啊哦~ 貌似哪不对。。。';

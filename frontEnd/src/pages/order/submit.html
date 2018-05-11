@@ -35,19 +35,8 @@
       </section>
 
       <section class="info_list">
-	<section class="product_wrap">
-	  <ul class="product_ul">
-	    <li class="product_li">
-	      <img src="http://wd.geilicdn.com/bj-pc-1224535927-1524034449435-304757963_800_800.jpg?w=80&amp;h=80&amp;cp=1" class="product_li_img" >
-	      <h2 class="product_li_title"></h2>
-	      <h3 class="product_li_spec"></h3>
-	      <h2 class="product_li_money">
-		<span>￥26.20</span>
-		<span class="num">x1</span>
-	      </h2>
-	    </li>
-	  </ul>
-	</section>
+	
+	<%= require('html-loader!../../public-resource/components/info-wrap/order/submit/order-submit-info.html') %>
 
 	<section class="order_notice_wrap">
 	  <p>二十年信誉保证，祝您购物愉快</p>
@@ -62,28 +51,14 @@
 	  </p>
 	</section>
 
-	<section class="total_wrap">
-	  <span>
-	    共1件商品 合计:
-	    <em>￥26.20</em>
-	  </span>
-	</section>
+	<%= require('html-loader!../../public-resource/components/info-wrap/order/total-section/order-total-info.html') %>
 	
       </section>
 
       
     </section>
 
-    <footer class="order_footer" >
-      <div class="order_footer_inner">
-	<a id="order-submit">提交订单</a>
-	<p class="final_info">
-	  应付总额:
-	  <i class="i_pri">￥26.20</i>
-	  <span class="num">共1件商品</span>
-	</p>
-      </div>
-    </footer>
+    <%= require('html-loader!../../public-resource/components/footer/nav/submit/footer-nav-submit.html') %>
     
     <%= require('html-loader!../../public-resource/components/side-menu/pop-address/pop-address.html') %>
     

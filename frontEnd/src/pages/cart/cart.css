@@ -50,7 +50,7 @@
     border-color: #eb2925;
 }
 
-.C_list_bar .all_select {
+.C_list_bar .select_all {
     width: 22px;
     height: 50px;
     padding: 0 10px 0 15px;
@@ -344,6 +344,20 @@
     background-color: #fff;
     -webkit-border-radius: 20px;
     border-radius: 20px;
+}
+
+.selected .select_radio{
+    background-color: #eb2925;
+    border-color: #eb2925;
+}
+
+.select_all .icon-check:before {
+    content: "\E5CA";
+    display: block;
+    width: 20px;
+    height: 16px;
+    font-size: 16px;
+    color: #fff;
 }
 
 .select_all .select_text {

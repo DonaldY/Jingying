@@ -30,7 +30,17 @@ var page = {
       }
     });
 
-    $('#btn-buy').click(function() {});
+    $('#btn-buy').click(function() {
+      var skuId = parseInt($('.curr_sku').attr('data-skuId'));
+      var count = parseInt($('#product-num').val());
+      if (isNaN(skuId) || skuId === null || skuId === 0) {
+        util.formatTips('请选择规格');
+      } else if (isNaN(count) || count === null || count === 0) {
+        util.formatTips('请选择数量');
+      } else {
+        window.location.href = '/Jingying/order/add?skuId=' + skuId + '&count=' + count;
+      }
+    });
   },
 };
 

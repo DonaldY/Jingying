@@ -1,0 +1,13 @@
+.order_wrap .total_wrap {
+    height: 52px;
+    line-height: 52px;
+    text-align: right;
+    margin: 0 15px;
+    color: #737373;
+    border: 0;
+    border-top: 1px solid #E5E5E5;
+}
+
+.total_wrap em {
+    color: #C60A1E;
+}

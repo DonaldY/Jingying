@@ -1,0 +1,17 @@
+﻿<section class="product_wrap">
+  <ul class="product_ul">
+    
+    <% for ( item in list) { %>
+    <li class="product_li">
+      <img src="http://image.jingying.com${item.main_image}" class="product_li_img" >
+      <h2 class="product_li_title">${item.name}</h2>
+      <h3 class="product_li_spec">${item.spec_name}</h3>
+      <h2 class="product_li_money">
+	<span>￥${item.price}</span>
+	<span class="num">x${item.quantity}</span>
+      </h2>
+    </li>
+    <% } %>
+    
+  </ul>
+</section>
