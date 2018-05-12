@@ -3,6 +3,8 @@
 require('./product-index-info.css');
 const popMenuPage = require('../../../side-menu/pop/pop-menu.js');
 
+require('../../../../utils/jq/jquery.lazyload.min.js');
+
 var page = {
   init: function() {
     this.bindEvent();
@@ -16,6 +18,10 @@ var page = {
       var image = $(this).attr('data-mainImage');
       popMenuPage.showEvent(spuId, image);
       return false;
+    });
+
+    $('img.lazy').lazyload({
+      threshold: 200,
     });
   },
 };
