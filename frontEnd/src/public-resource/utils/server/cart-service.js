@@ -11,9 +11,10 @@ var cartServer = {
     });
   },
 
-  addToCart: function(resolve, reject) {
+  addToCart: function(param, resolve, reject) {
     util.request({
-      url: util.getServerUrl(''),
+      url: util.getServerUrl('/cart/ajaxAdd'),
+      data: param,
       success: resolve,
       error: reject,
     });

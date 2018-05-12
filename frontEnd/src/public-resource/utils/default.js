@@ -28,7 +28,7 @@ var _common = {
   },
 
   successTips: function(msg) {
-    alert(msg || '');
+    console.log(msg || '');
   },
 
   errorTips: function(msg) {
