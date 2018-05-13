@@ -1,0 +1,150 @@
+#address-from {
+    padding: 0 10px 10px;
+    background: #fff;
+}
+
+.address_p {
+    padding: 8px 10px 8px 80px;
+    line-height: 26px;
+}
+
+.address_country .c-code, .address_p>label {
+    top: 10px;
+    left: 10px;
+}
+
+.abs {
+    position: absolute;
+}
+
+.rel {
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #404040;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+.address {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #a9a9a9;
+}
+
+.address, .input {
+    border-radius: 0;
+}
+
+.address_country {
+    padding: 8px 10px 8px 80px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+
+.address_country .country-select {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 10px;
+    z-index: 2;
+    position: absolute;
+}
+
+.address_country, .address_p {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.rel {
+    position: relative;
+}
+
+.address_p_area {
+    padding-right: 30px;
+}
+
+.default {
+    position: relative;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+.default .switch-checked {
+    border-color: #1fb921 !important;
+    background-color: #1fb921 !important;
+}
+
+.default .switch-checked:after {
+    left: 21px !important;
+}
+
+.default .switch {
+    position: absolute;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 51px;
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    -webkit-transition: all .3s cubic-bezier(.78,.14,.15,.86);
+    transition: all .3s cubic-bezier(.78,.14,.15,.86);
+    -webkit-user-select: none;
+    user-select: none;
+    top: 0;
+    right: 13px;
+}
+
+.default .switch-checked .switch-inner {
+    left: 6px;
+}
+
+.default .switch-inner {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 24px;
+}
+
+.default .switch:after {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 0;
+    top: 0;
+    border-radius: 100%;
+    background-color: #fff;
+    content: " ";
+    cursor: pointer;
+    -webkit-transition: left .3s cubic-bezier(.78,.14,.15,.86);
+    transition: left .3s cubic-bezier(.78,.14,.15,.86);
+}
+
+.footer {
+    max-width: 640px;
+    padding: 10px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+}
+
+.footer .save-btn {
+    width: 100%;
+    background: #c60a1e;
+    border-radius: 4px;
+    height: 44px;
+    line-height: 44px;
+}

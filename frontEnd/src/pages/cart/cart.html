@@ -1,12 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <meta content="telephone=no" name="format-detection">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <%= require('html-loader!../../public-resource/components/header/meta/common-meta.html') %>
     
     <title>购物车</title>
 
@@ -17,8 +12,9 @@
     
     <header class="common_hd">
       <section class="hd_left">
-	<a href="#" class="hd_back"></a>
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
       </section>
+      <a href="/Jingying" class="hd_logo"></a>
       <h1 class="hd_title">购物车</h1>
       <section class="hd_block"></section>
     </header>

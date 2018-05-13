@@ -18,6 +18,7 @@
 }
 
 .sec_banner {
+    background-image: url('../../public-resource/imgs/back-img.webp');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -43,6 +44,10 @@
     position: absolute;
     top: 19px;
     left: 15px;
+    background-image: url('../../public-resource/imgs/head-logo.webp');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
 }
 
 .shop_info_text {

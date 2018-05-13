@@ -12,7 +12,6 @@ const popAddressMenu = require('../../public-resource/components/side-menu/pop-a
 var page = {
   init: function() {
     this.bindEvent();
-    popAddressMenu.init();
   },
 
   bindEvent: function() {

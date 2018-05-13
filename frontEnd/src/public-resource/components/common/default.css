@@ -168,6 +168,18 @@ input, textarea, select, button {
     transform: rotate(135deg);
 }
 
+.hd_logo {
+    width: 44px;
+    height: 44px;
+    background-image: url('../../imgs/logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 44px;
+    top: 0;
+    position: absolute;
+    left: 50px;
+}
+
 .hd_title {
     -webkit-box-flex: 1;
     box-flex: 1;

@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 require('./cart.css');
 require('../../public-resource/iconfont/font-style.css');
@@ -83,8 +83,6 @@ var page = {
       // 结算
       _this.calculate();
     });
-
-    // 去结算
   },
 
   loadMore: function() {

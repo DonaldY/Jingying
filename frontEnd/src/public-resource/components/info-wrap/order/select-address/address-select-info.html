@@ -1,0 +1,24 @@
+﻿<section id="address-request" style="display: block; min-height: 57px;">
+  <ul class="addre_ul">
+    <% if (address == null) {%>
+    <li class="addre_li">
+      <span class="addre_icon_desc icon-location-address"></span>
+      <span id="">请填写收货地址</span>
+    </li>
+    <% } else { %>
+    <li class="addre_li">
+      <span class="addre_icon_desc icon-location-address"></span>
+      <span id="addre-name">${address.rece_name}</span>
+      <span id="addre-phone">${address.rece_phone}</span>
+    </li>
+    <li class="addre_li" style="padding-top:5px;">
+      <% if (address.rece_default == true) { %>
+      <em>[默认]</em>
+      <% } %>
+      ${address.rece_address}
+    </li>
+    <% } %>
+  </ul>
+
+  <p class="addre_bottom_border"></p>
+</section>
