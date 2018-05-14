@@ -11,7 +11,7 @@ var page = {
   },
 
   bindEvent: function() {
-    $('#add-cart-sku').click(function(event) {
+      $('.add-cart-sku').click(function(event) {
       event.stopPropagation();
       event.preventDefault();
       var spuId = $(this).attr('data-spuId');
