@@ -176,8 +176,8 @@ input, textarea, select, button {
     background-repeat: no-repeat;
     background-size: 44px;
     top: 0;
-    position: absolute;
-    left: 50px;
+    position: relative;
+    left: 0;
 }
 
 .hd_title {

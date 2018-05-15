@@ -39,30 +39,30 @@ var popAddressPage = {
         data: {addressId: _addressId},
         dataType: 'json',
         success: function(result) {
-          // alert('更新成功');
+          // set addressid
+          $('#addre-data').data('addressid', _addressId);
 
+          var rece_default = $(this).data('rece_default');
+          var rece_name = $(this).data('name');
+          var rece_phone = $(this).data('phone');
+          var rece_address = $(this).data('address');
+          $('.addre_ul li').remove();
+
+          var liStr = "<li class='addre_li'><span class='addre_icon_desc icon-location-address'></span>";
+          liStr += "<span id='addre-name'>" + rece_name + '<span>';
+          liStr += "<span id='addre-phone'>" + rece_phone + '<span></li>';
+          liStr += "<li class='addre_li' style='padding-top:5px;'>";
+          if (rece_default === true) {
+            liStr += '<em>[默认]</em>';
+          }
+          liStr += rece_address + '</li>';
+
+          $('.addre_ul').append(liStr);
         },
         error: function() {
-          // alert('更新失败');
+          util.errorTips('手滑了下~');
         },
       });
-
-      var rece_default = $(this).data('rece_default');
-      var rece_name = $(this).data('name');
-      var rece_phone = $(this).data('phone');
-      var rece_address = $(this).data('address');
-      $('.addre_ul li').remove();
-
-      var liStr = "<li class='addre_li'><span class='addre_icon_desc icon-location-address'></span>";
-      liStr += "<span id='addre-name'>" + rece_name + '<span>';
-      liStr += "<span id='addre-phone'>" + rece_phone + '<span></li>';
-      liStr += "<li class='addre_li' style='padding-top:5px;'>";
-      if (rece_default === true) {
-        liStr += '<em>[默认]</em>';
-      }
-      liStr += rece_address + '</li>';
-
-      $('.addre_ul').append(liStr);
 
       // 关闭
       $('#address-list').removeClass('animate_top');
