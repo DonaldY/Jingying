@@ -11,7 +11,8 @@ public class UserDao {
     private final User dao = new User().dao();
     
     public User findByName(String username) {
-        return this.dao.findFirst("SELECT id, username, password FROM j_user WHERE username=?", username);
+        return this.dao.findFirst("SELECT id, username, password, nickname, headimgurl FROM j_user WHERE username=?", 
+            username);
     }
     
     public User findById(Integer id) {

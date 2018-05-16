@@ -17,13 +17,6 @@ public class ProductDao {
     
     private final ProductSpu spuDao = new ProductSpu().dao();
     private final ProductSku skuDao = new ProductSku().dao();
-    
-    public Page<Record> queryProductSpuList(Integer pageNumber, Integer pageSize) {
-        String select = "SELECT *";
-        String sqlExceptSelect = " FROM j_product_spu";
-        
-        return Db.paginate(pageNumber, pageSize, select, sqlExceptSelect);
-    }
 
     public List<Record> querySpuListByCategoryId(Integer categoryId) {
         
@@ -60,8 +53,8 @@ public class ProductDao {
         return Db.paginate(pageNumber, pageSize, select, sqlExceptSelect);
     }
 
-    public ProductSpu queryProductById(Integer prodectSpuId) {
-        String sql = "SELECT id, name, main_image, sub_images, min_price, max_price, min_price FROM j_product_spu " +
+    public ProductSpu queryProductSpuById(Integer prodectSpuId) {
+        String sql = "SELECT id, name, main_image, sub_images, min_price, max_price, stock FROM j_product_spu " +
             "WHERE id=? AND status=1";
         ProductSpu productSpu = this.spuDao.findFirst(sql, prodectSpuId);
         return productSpu;
@@ -71,5 +64,29 @@ public class ProductDao {
         String sql = "SELECT id, spec_name, stock, price FROM j_product_sku WHERE spu_id=?";
         List<ProductSku> productSkuList = this.skuDao.find(sql, spuId);
         return productSkuList;
+    }
+
+    public List<Record> queryProductBySkuId(Integer skuId) {
+        String sql = "SELECT k.id, k.spec_name, k.price, k.stock, p.name, p.main_image FROM j_product_sku k," +
+            " j_product_spu p WHERE k.id=? AND k.spu_id=p.id AND p.status=1";
+        List list = Db.find(sql, skuId);
+        return list;
+    }
+
+    public List<Record> queryProductFromCartByUid(Integer id) {
+        String sql = "SELECT k.id, k.spec_name, k.price, k.stock, p.name, p.main_image, c.quantity " +
+            "FROM j_cart c LEFT JOIN j_product_sku k ON c.sku_id=k.id " + 
+            "LEFT JOIN j_product_spu p ON k.spu_id=p.id " + 
+            "WHERE c.user_id=? AND c.checked=1 AND c.status=1";
+        List list = Db.find(sql, id);
+        return list;
+    }
+
+    public ProductSku queryProductSkuBySkuId(Integer skuId) {
+        return this.skuDao.findById(skuId);
+    }
+
+    public void updateProductSku(ProductSku productSku) {
+        productSku.update();
     }
 }

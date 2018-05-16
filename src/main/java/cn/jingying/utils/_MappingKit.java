@@ -1,7 +1,10 @@
 package cn.jingying.utils;
 
+import cn.jingying.address.model.Address;
 import cn.jingying.cart.model.Cart;
 import cn.jingying.category.model.Category;
+import cn.jingying.order.model.Order;
+import cn.jingying.order.model.OrderItem;
 import cn.jingying.product.model.ProductSku;
 import cn.jingying.product.model.ProductSpu;
 import cn.jingying.user.model.User;
@@ -26,6 +29,9 @@ public class _MappingKit {
 		arp.addMapping("j_cart", "id", Cart.class);
 		arp.addMapping("j_product_spu", "id", ProductSpu.class);
 		arp.addMapping("j_product_sku", "id", ProductSku.class);
+		arp.addMapping("j_address", "id", Address.class);
+		arp.addMapping("j_order", "id", Order.class);
+		arp.addMapping("j_order_item", "id", OrderItem.class);
 	}
 }
 

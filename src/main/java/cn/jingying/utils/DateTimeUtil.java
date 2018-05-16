@@ -5,7 +5,9 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by DonaldY on 2018/4/21.
@@ -43,6 +45,18 @@ public class DateTimeUtil {
         DateTime dateTime = new DateTime(date);
         return dateTime.toString(STANDARD_FORMAT);
     }
+    
+    public static Date nextDayDate() {
+        Date date = new Date(); 
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE,1);//把日期往后增加一天.正数往后推,负数往前推 
+        return calendar.getTime(); 
+    }
+    
+    public static String nextDayStr() {
+        return dateToStr(nextDayDate());
+    }
 
 
 
@@ -51,6 +65,7 @@ public class DateTimeUtil {
         System.out.println(DateTimeUtil.dateToStr(new Date(),"yyyy-MM-dd HH:mm:ss"));
         System.out.println(DateTimeUtil.strToDate("2010-01-01 11:11:11","yyyy-MM-dd HH:mm:ss"));
 
+        System.out.println(DateTimeUtil.nextDayStr());
     }
     
 }

@@ -20,8 +20,8 @@ public class UserService {
             return ServerResponse.createByErrorMessage("用户名不存在");
         }
         
-        String md5Pwd = MD5Util.MD5EncodeUtf8(password);
-        user.set("password", md5Pwd);
+//        String md5Pwd = MD5Util.MD5EncodeUtf8(password);
+//        user.set("password", md5Pwd);
         if (!password.equals(user.getStr("password"))) {
             return ServerResponse.createByErrorMessage("密码错误");
         }
@@ -31,7 +31,7 @@ public class UserService {
     }
     
     public ServerResponse<String> register(User user) {
-        user.set("password", MD5Util.MD5EncodeUtf8(user.getStr("password")));
+        // user.set("password", MD5Util.MD5EncodeUtf8(user.getStr("password")));
         this.userDao.addUser(user);
         return ServerResponse.createBySuccessMessage("注册成功");
     }
@@ -45,15 +45,11 @@ public class UserService {
         return ServerResponse.createBySuccess(user);
     }
 
-    public ServerResponse<User> wxOauthLogin(String openId, String token) {
+    public ServerResponse<User> wxOauthLogin(String openId) {
         User user = this.userDao.findByOpenId(openId);
 
         if (null == user) {
             return ServerResponse.createByErrorMessage("not register");
-        }
-        
-        if (!token.equals(user.getStr("token"))) {
-            return ServerResponse.createByErrorMessage("token失效");
         }
 
         user.set("token", StringUtils.EMPTY);

@@ -7,6 +7,7 @@ import cn.jingying.common.ResponseCode;
 import cn.jingying.common.ServerResponse;
 import com.jfinal.plugin.activerecord.Record;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,33 +16,63 @@ import java.util.List;
 public class CartService {
     
     private final CartDao cartDao = new CartDao();
-    
-    public ServerResponse<List<Record>> add(Integer userId, Integer productId, Integer count) {
+
+    public ServerResponse add(Integer userId, Integer skuId, Integer count) {
         
-        if (productId == null || count == null) {
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+        if (skuId == null || count == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(), ResponseCode
+                .ILLEGAL_ARGUMENT.getDesc());
         }
 
-        Record cartVo = this.cartDao.queryCartByUserIdAndProductId(userId, productId);
+        Cart cart = this.cartDao.queryCartByUserIdAndSkuId(userId, skuId);
         
-        if (null == cartVo) {
+        if (null == cart) {
             // 购物车中没有这个产品
             Cart cartItem = new Cart();
             cartItem.set("quantity",count);
-            cartItem.set("check", Const.Cart.CHECKED);
-            cartItem.set("productId",productId);
-            cartItem.set("userId", userId);
-            
+            cartItem.set("checked", Const.Cart.CHECKED);
+            cartItem.set("sku_id",skuId);
+            cartItem.set("user_id", userId);
+            this.cartDao.insertCart(cartItem);
         } else {
-            count += cartVo.getInt("quantity");
-            cartVo.set("quantity", count);
+            count += cart.getInt("quantity");
+            cart.set("quantity", count);
+            this.cartDao.updateCartById(cart);
         }
-        return this.list(userId);
+        return ServerResponse.createBySuccess("添加成功");
     }
     
     public ServerResponse<List<Record>> list(Integer userId) {
         List<Record> cartVoList = this.cartDao.getCartListByUid(userId);
         return ServerResponse.createBySuccess(cartVoList);
     }
-    
+
+    public ServerResponse updateCheckedById(Integer id, Integer cartId, Integer status) {
+        int isSuccess = this.cartDao.updateSelectedById(id, cartId, status);
+        if (isSuccess == 1) {
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
+    }
+
+    public ServerResponse deleteCartById(Integer id) {
+        int count = this.cartDao.deleteCartById(id);
+        if (count > 0) {
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
+    }
+
+    public ServerResponse<List<Record>> getCheckedCartList(Integer userId) {
+        List list = this.cartDao.queryCheckedCartList(userId);
+        if (list.isEmpty()) {
+            return ServerResponse.createByError();
+        }
+        return ServerResponse.createBySuccess(list);
+    }
+
+    /*public ServerResponse<Integer> getCartItemNum() {
+        this.cartDao.queryCartItemNum()
+        return cartItemNum;
+    }*/
 }

@@ -7,18 +7,17 @@ import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
 
 /**
- * Created by DonaldY on 2018/4/15.
+ * Created by DonaldY on 2018/5/5.
  */
-public class UserInterceptor implements Interceptor{
-    
+public class WxOAuthInterceptor implements Interceptor {
+
     public void intercept(Invocation invocation) {
         Controller controller = invocation.getController();
         User user = controller.getSessionAttr(Const.CURRENT_USER);
         if (null == user) {
-            String actionKey = invocation.getActionKey();
-            controller.redirect("/login?from=" + actionKey, true);
-        } else {
             invocation.invoke();
+        } else {
+            controller.redirect("/user");
         }
     }
 }

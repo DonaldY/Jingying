@@ -1,8 +1,10 @@
 package cn.jingying.config;
 
 import cn.jingying.address.controller.AddressController;
+import cn.jingying.cart.controller.CartController;
 import cn.jingying.index.controller.IndexController;
 import cn.jingying.order.controller.OrderController;
+import cn.jingying.product.controller.ProductController;
 import cn.jingying.user.controller.UserController;
 import cn.jingying.user.controller.WxOauth2Controller;
 import cn.jingying.utils._MappingKit;
@@ -12,6 +14,9 @@ import com.jfinal.json.MixedJsonFactory;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
+import com.jfinal.plugin.ehcache.EhCachePlugin;
+import com.jfinal.plugin.redis.RedisPlugin;
+import com.jfinal.plugin.redis.serializer.JdkSerializer;
 import com.jfinal.qyweixin.sdk.api.ApiConfig;
 import com.jfinal.qyweixin.sdk.api.ApiConfigKit;
 import com.jfinal.template.Engine;
@@ -46,6 +51,10 @@ public class JyConfig extends JFinalConfig{
 		PropKit.use("config.properties");
 		me.setDevMode(true);
 		me.setEncoding("utf-8");
+		me.setError403View("/error.html");
+		me.setError404View("/error.html");
+		me.setError500View("/error.html");
+		me.setErrorView(400, "/error.html");
 		JFinal3BeetlRenderFactory rf = new JFinal3BeetlRenderFactory();
 		rf.config();
 		me.setRenderFactory(rf);
@@ -58,10 +67,13 @@ public class JyConfig extends JFinalConfig{
 
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class, "/WEB-INF/pages/index/");
-		me.add("/wechatOAuth", WxOauth2Controller.class, "/");
+		me.add("/wechatOAuth", WxOauth2Controller.class, "/WEB-INF/pages/user/");
 		me.add("/user", UserController.class, "/WEB-INF/pages/user/");
-		me.add("/address", AddressController.class);
 		me.add("/center", OrderController.class, "/WEB-INF/pages/order/");
+		me.add("/product", ProductController.class, "/WEB-INF/pages/product/");
+		me.add("/cart", CartController.class, "/WEB-INF/pages/cart/");
+		me.add("/order", OrderController.class, "/WEB-INF/pages/order/");
+		me.add("/address", AddressController.class, "/WEB-INF/pages/");
 	}
 
 	public void configPlugin(Plugins me) {
@@ -77,13 +89,13 @@ public class JyConfig extends JFinalConfig{
 		_MappingKit.mapping(arp);
 		me.add(arp);
 
-		// EhCachePlugin ecp = new EhCachePlugin();
-		// me.add(ecp);
+		 /*EhCachePlugin ecp = new EhCachePlugin();
+		 me.add(ecp);
 
-		// 使用redis分布accessToken
-		// RedisPlugin redisPlugin = new RedisPlugin("qyweixin", "127.0.0.1");
-		// redisPlugin.setSerializer(JdkSerializer.me); // 需要使用fst高性能序列化的用户请删除这一行（Fst jar依赖请查看WIKI）
-		// me.add(redisPlugin);
+		 // 使用redis分布accessToken
+		 RedisPlugin redisPlugin = new RedisPlugin("qyweixin", "127.0.0.1");
+		 redisPlugin.setSerializer(JdkSerializer.me); // 需要使用fst高性能序列化的用户请删除这一行（Fst jar依赖请查看WIKI）
+		 me.add(redisPlugin);*/
 	}
 
 	public void configInterceptor(Interceptors me) {

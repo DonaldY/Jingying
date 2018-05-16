@@ -19,28 +19,24 @@ import java.util.List;
 public class ProductController extends Controller{
     private final ProductService productService = new ProductService();
     
-    @ActionKey("/list")
-    public void getProductSpuList() {
-        Integer pageNumber = getParaToInt("pageNumber");
-        Integer pageSize = 5;
-        Page<Record> pages = this.productService.getProductSpuList(pageNumber, pageSize).getData();
-        setAttr("pages", pages);
-        renderJson();
-    }
-    
     @ActionKey("/product/detail")
     public void getProductSpuDetail() {
         Integer productSpuId = getParaToInt("id");
-        System.out.println("id:" + productSpuId );
-        ServerResponse serverResponse = this.productService.getProductSpuById(productSpuId);
-        System.out.println(serverResponse.getData().toString());
-        if (!serverResponse.isSuccess()) {
-            // TODO : error页面
-            System.out.println("error");
+        ServerResponse spuServerResponse = this.productService.getProductSpuById(productSpuId);
+        if (!spuServerResponse.isSuccess()) {
+            renderError(404);
         }
-        ProductSpu productSpu = (ProductSpu) serverResponse.getData();
+        
+        ServerResponse skuServerResponse = this.productService.getSkuListBySpuId(productSpuId);
+        if (!skuServerResponse.isSuccess()) {
+            renderError(404);
+        }
+        
+        ProductSpu productSpu = (ProductSpu) spuServerResponse.getData();
         List<String> imgList = Arrays.asList(productSpu.getStr("sub_images").split(","));
-        setAttr("product", productSpu);
+        List<ProductSku> skuList = (List<ProductSku>) skuServerResponse.getData();
+        setAttr("skuList", skuList);
+        setAttr("productSpu", productSpu);
         setAttr("imgList", imgList);
         render("product.html");
     }
@@ -64,12 +60,12 @@ public class ProductController extends Controller{
     @ActionKey("/product/ajaxSkuList")
     public void getProductSkuList() {
         Integer spuId = getParaToInt("spuId");
-        System.out.println(spuId);
         ServerResponse serverResponse = this.productService.getSkuListBySpuId(spuId);
         if (serverResponse.isSuccess()) {
             List<ProductSku> productSkuList = (List<ProductSku>) serverResponse.getData();
             renderJson(productSkuList);
         } else {
+            // TODO: ERROR 值
             renderJson();
         }
     }
