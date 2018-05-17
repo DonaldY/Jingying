@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 require('./pop-address.css');
 require('../../../iconfont/font-style.css');
@@ -31,8 +31,9 @@ var popAddressPage = {
 
     // 选择
     $(document).on('click', '.l_addre_li', function() {
-      $(this).addClass('l_li_current').siblings().removeClass('l_li_current');
-      var _addressId = $(this).data('id');
+      var _this = this;
+      $(_this).addClass('l_li_current').siblings().removeClass('l_li_current');
+      var _addressId = $(_this).data('id');
 
       $.ajax({
         url: '/Jingying/address/updateChecked',
@@ -42,10 +43,10 @@ var popAddressPage = {
           // set addressid
           $('#addre-data').data('addressid', _addressId);
 
-          var rece_default = $(this).data('rece_default');
-          var rece_name = $(this).data('name');
-          var rece_phone = $(this).data('phone');
-          var rece_address = $(this).data('address');
+          var rece_default = $(_this).data('rece_default');
+          var rece_name = $(_this).data('name');
+          var rece_phone = $(_this).data('phone');
+          var rece_address = $(_this).data('address');
           $('.addre_ul li').remove();
 
           var liStr = "<li class='addre_li'><span class='addre_icon_desc icon-location-address'></span>";
