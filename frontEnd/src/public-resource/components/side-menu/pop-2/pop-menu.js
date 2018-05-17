@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 require('./pop-menu.css');
 require('../../../iconfont/font-style.css');

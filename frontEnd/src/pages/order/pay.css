@@ -2,14 +2,14 @@
 .pay_info_wrap {
     text-align: center;
     overflow: hidden;
-    min-height: 300px;
+    min-height: 6.666667rem;
 }
 
 .pay_info_wrap .pay_info_container {
-    margin: 0 auto;
-    padding: 20px 0;
+    padding: .653333rem .133333rem .733333rem;
+    margin: 0 auto .4rem;
     width: 100%;
-    height: 120px;
+    height: 2.266667rem;
     background: #fff;
     text-align: center;
     color: #9a9a9a;
@@ -42,7 +42,7 @@
 
 .pay_way_list li {
     position: relative;
-    height: 2.026667rem;
+    height: 1.026667rem;
     padding: .466667rem .8rem .44rem 1.2rem;
     color: #9a9a9a;
     line-height: .533333rem;
@@ -53,12 +53,22 @@
     
 }
 
-.pay_way_card .pay_way_logo {
+.pay_way_list .selected {
 
 }
 
+.selected .select {
+    background-color: #09bb07 !important;
+}
+
+.pay_way_list ._alipay {
+    background: url('../../public-resource/imgs/pay-zhifubao.png') 0 no-repeat;
+    -webkit-background-size: .933333rem .933333rem;
+    background-size: .933333rem .933333rem;
+}
+
 .pay_way_card h2 {
-    margin-top: .266667rem;
+    margin-top: .166667rem;
     color: #404040;
     line-height: .666667rem;
     font-size: 14px;
@@ -68,9 +78,22 @@
     display: block;
     position: absolute;
     top: .733333rem;
-    right: .4rem;
+    right: .9rem;
     width: .56rem;
     height: .56rem;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+
+.pay_way_list .icon-check:before {
+    content: "\E5CA";
+    display: block;
+    width: 20px;
+    height: 18px;
+    font-size: 18px;
+    color: #fff;
 }
 
 #pay-now {
