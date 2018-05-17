@@ -3,11 +3,9 @@ package cn.jingying.category.service;
 import cn.jingying.category.dao.CategoryDao;
 import cn.jingying.category.model.Category;
 import cn.jingying.common.ServerResponse;
+import com.jfinal.plugin.activerecord.Record;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by DonaldY on 2018/3/14.
@@ -47,5 +45,20 @@ public class CategoryService {
             deepFindCategory(categorieSet, c.getInt("id"));
         }
         return categorieSet;
+    }
+
+    /**
+     * 找一、二级种类
+     */
+    public ServerResponse<Map<String, List<Category>>> findSecondCategory() {
+        Map map = new HashMap<String, List<Category>>();
+        List<Record> roots = this.categoryDao.findRootList();
+        for (Record root : roots) {
+            List<Category> list = this.categoryDao.findChildByPid(root.getInt("id"));
+            if (!list.isEmpty()) {
+                map.put(root.getStr("name"), list);
+            }
+        }
+        return ServerResponse.createBySuccess(map);
     }
 }

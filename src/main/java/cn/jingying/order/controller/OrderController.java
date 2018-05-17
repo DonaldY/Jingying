@@ -109,9 +109,10 @@ public class OrderController extends Controller{
         ServerResponse serverResponse = this.orderService.createOrder(user.getInt("id"), addressId);
         if (serverResponse.isSuccess()) {
             setAttr("order", serverResponse.getData());
+            System.out.println(serverResponse.getData());
             render("pay.html");
         } else {
-            
+            renderError(500);
         }
     }
 }
