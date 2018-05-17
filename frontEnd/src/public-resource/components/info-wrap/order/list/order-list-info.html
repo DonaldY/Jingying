@@ -1,0 +1,80 @@
+﻿<% for (entry in orderMap) {
+var order = entry.key;
+var list = entry.value;
+%>
+<div class="order_wrap">
+  
+  <h2 class="order_list_title">
+    <span class="order_status">
+      <% if (order.status == 0) {%>
+      已取消
+      <% } else if (order.status == 10) {%>
+      未付款
+      <% } else if (order.status == 20) {%>
+      已付款
+      <% } else if (order.status == 40) {%>
+      已发货
+      <% } else if (order.status == 50) {%>
+      交易成功
+      <% } else if (order.status == 60) {%>
+      交易失败
+      <% } %>
+    </span>
+  </h2>
+  
+  <div class="order_list_item">
+    
+    <% for (item in list) { %>
+    <div class="l_item_wrap">
+      
+      <div class="flex">
+	<div class="flex_item">
+	  <img class="flex_img" src="http://image.jingying.com${item.product_image}">
+	</div>
+	
+	<div class="flex_auto l_item_info">
+	  <div class="flex">
+	    
+	    <div class="flex_auto">
+	      <span class="l_item_name">${item.product_name}</span>
+	      <p class="l_item_sku"></p>
+	    </div>
+	    
+	    <div class="flex_item">
+	      <div class="item_price">¥${item.curr_unit_price}</div>
+	      <div class="item_count">×${item.quantity}</div>
+	    </div>
+	    
+	  </div>
+	</div>
+	
+      </div>
+    </div>
+    <% } %>
+    
+  </div>
+
+  <p class="order_total_price">
+    <span class="order_price_wrap">
+      共${order.count}件商品 总价:
+      <em class="p_price">¥${order.payment}</em>
+      <em class="p_express_fee">(含运费¥0.00)</em>
+    </span>
+  </p>
+
+
+  <div class="order_action clearfix" >
+    <% if (order.status == 10) {%>
+    <a href="${ctx_path}/order/continuePay?oNo=${order.order_no}">
+      <span class="btn" style="border-color: #C60A1E;color: #C60A1E;" id="btn-continue-pay">继续支付</span>
+    </a>
+    <% } %>
+    <% if (order.status == 10 || order.status == 20) {%>
+    <a href="${ctx_path}/order/close?oNo=${order.order_no}">
+      <span class="btn" id="btn-close">关闭订单</span>
+    </a>
+    <% } %>
+  </div>
+  
+</div>
+<% } %>

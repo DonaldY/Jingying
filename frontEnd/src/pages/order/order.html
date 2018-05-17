@@ -25,78 +25,31 @@
       <ul>
 	
 	<li tab-index="0" data-spider-action-name="全部">
-	  <a class="curr_a">全部</a>
+	  <a href="/Jingying/order/list?status=0" class="curr_a">全部</a>
 	</li>
 	
 	<li tab-index="1" data-spider-action-name="待付款">
-	  <a>待付款</a>
+	  <a href="/Jingying/order/list?status=10">待付款</a>
 	</li>
 	
 	<li tab-index="2" data-spider-action-name="待发货">
-	  <a>待发货</a>
+	  <a href="/Jingying/order/list?status=20">待发货</a>
 	</li>
 	
 	<li tab-index="3" data-spider-action-name="待收货">
-	  <a>待收货</a>
+	  <a href="/Jingying/order/list?status=40">待收货</a>
 	</li>
 	
 	<li tab-index="4" data-spider-action-name="待评价">
-	  <a>待评价</a>
+	  <a href="/Jingying/order/list?status=50">待评价</a>
 	</li>
 
       </ul>
     </section>
 
     <div class="order_list">
-      <div class="order_wrap">
-	
-	<h2 class="order_list_title">
-	  <span class="order_status">待付款</span>
-	</h2>
-	
-	<div class="order_list_item">
-	  
-	  <div class="l_item_wrap">
-	    
-	    <div class="flex">
-	      <div class="flex_item">
-		<img class="flex_img" src="http://wd.geilicdn.com/bj-pc-1224535927-1524034449435-304757963_800_800.jpg?w=80&amp;h=80&amp;cp=1">
-	      </div>
-	      
-	      <div class="flex_auto l_item_info">
-		<div class="flex">
-		  <div class="flex_auto">
-		    <span class="l_item_name">酒米窝料鲫鱼野钓自制打窝米配方鲤鱼饵料底窝料水库桶装春季夏季
-		    </span>
-		    <p class="l_item_sku">型号: 瓶装（750g）</p>
-		  </div>
-		  <div class="flex_item">
-		    <div class="item_price">¥26.20</div>
-		    <div class="item_count">×2</div>
-		  </div>
-		  
-		</div>
-	      </div>
-	      
-	    </div>
-	  </div>
-	</div>
 
-	<p class="order_total_price">
-	  <span class="order_price_wrap">
-	    共5件商品 总价:
-	    <em class="p_price">¥115.30</em>
-	    <em class="p_express_fee">(含运费¥0.00)</em>
-	  </span>
-	</p>
-
-
-	<div class="order_action clearfix" >
-	  <span class="btn" style="border-color: #C60A1E;color: #C60A1E;" id="btn-continu-pay">继续支付</span>
-	  <span class="btn" id="btn-close">关闭订单</span>
-	</div>
-	
-      </div>
+      <%= require('html-loader!../../public-resource/components/info-wrap/order/list/order-list-info.html') %>
       
     </div>
     

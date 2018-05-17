@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 require('./pop-address.css');
 require('../../../iconfont/font-style.css');
@@ -49,7 +49,8 @@ var popAddressPage = {
           var rece_address = $(_this).data('address');
           $('.addre_ul li').remove();
 
-          var liStr = "<li class='addre_li'><span class='addre_icon_desc icon-location-address'></span>";
+          var liStr = "<li class='addre_li' id='addre-data' data-addressid='" + _addressId + "'>";
+          liStr += "<span class='addre_icon_desc icon-location-address'></span>";
           liStr += "<span id='addre-name'>" + rece_name + '<span>';
           liStr += "<span id='addre-phone'>" + rece_phone + '<span></li>';
           liStr += "<li class='addre_li' style='padding-top:5px;'>";

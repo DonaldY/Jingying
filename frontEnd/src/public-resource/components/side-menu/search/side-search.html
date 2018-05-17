@@ -23,19 +23,23 @@
 	      </ul>
 	    </li>
 
-	    <% for(entry in map) {
-	         var name = entry.key;
-	         var list = entry.value;
+	    <% for(entry in categoryMap) {
+	    var name = entry.key;
+	    var list = entry.value;
 	    %>
 	    <li>
 	      <span class="li_title">${name}</span>
 	      <ul>
-		<% for (spu in list) { %>
-		  <li>${spu.name}</li>
+		<% for (category in list) { %>
+		<li>${category.name}</li>
 		<% } %>
 	      </ul>
 	    </li>
 	    <% } %>
+
+	    <br/>
+	    <br/>
+	    <br/>
 	    
 	  </ul>
 	</div>
