@@ -34,6 +34,14 @@ public class CartService {
             cartItem.set("sku_id",skuId);
             cartItem.set("user_id", userId);
             this.cartDao.insertCart(cartItem);
+        } else if (!cart.getBoolean("status")) {
+            /**
+              购物车中有，但是status = 0
+              即曾经存在过，后有删除
+             */
+            cart.set("quantity", count);
+            cart.set("status", true);
+            this.cartDao.updateCartById(cart);
         } else {
             count += cart.getInt("quantity");
             cart.set("quantity", count);

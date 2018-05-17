@@ -26,7 +26,7 @@ public class CartDao {
     }
 
     public Cart queryCartByUserIdAndSkuId(Integer userId, Integer skuId) {
-        String sql = "SELECT id, quantity FROM j_cart WHERE user_id=? AND sku_id=? AND status=1";
+        String sql = "SELECT id, quantity, status FROM j_cart WHERE user_id=? AND sku_id=?";
         return this.dao.findFirst(sql, userId, skuId);
     }
 
