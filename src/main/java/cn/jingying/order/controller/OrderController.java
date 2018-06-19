@@ -109,10 +109,54 @@ public class OrderController extends Controller{
         ServerResponse serverResponse = this.orderService.createOrder(user.getInt("id"), addressId);
         if (serverResponse.isSuccess()) {
             setAttr("order", serverResponse.getData());
-            System.out.println(serverResponse.getData());
             render("pay.html");
         } else {
             renderError(500);
+        }
+    }
+
+    /**
+     * 获取订单列表
+     */
+    public void list() {
+        User user = getSessionAttr(Const.CURRENT_USER);
+        Integer status = getParaToInt("status");
+        ServerResponse serverResponse = this.orderService.queryListByStatus(user.getInt("id"), status);
+        if (serverResponse.isSuccess()) {
+            setAttr("orderMap", serverResponse.getData());
+            System.out.println(serverResponse.getData());
+            render("order.html");
+        } else {
+            renderError(404);
+        }
+    }
+
+    /**
+     * 继续支付
+     */
+    public void continuePay() {
+        User user = getSessionAttr(Const.CURRENT_USER);
+        Long orderNo = getParaToLong("oNo");
+        ServerResponse serverResponse = this.orderService.getContinueOrderByOno(user.getInt("id"), orderNo);
+        if (serverResponse.isSuccess()) {
+            setAttr("order", serverResponse.getData());
+            render("pay.html");
+        } else {
+            renderError(500);
+        }
+    }
+
+    /**
+     * 关闭订单
+     */
+    public void close() {
+        User user = getSessionAttr(Const.CURRENT_USER);
+        Long orderNo = getParaToLong("oNo");
+        ServerResponse serverResponse = this.orderService.closeOrderByOid(user.getInt("id"), orderNo);
+        if (serverResponse.isSuccess()) {
+            redirect("/user/");
+        } else {
+            renderError(404);
         }
     }
 }

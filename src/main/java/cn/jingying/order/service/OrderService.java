@@ -14,10 +14,7 @@ import cn.jingying.utils.DateTimeUtil;
 import com.jfinal.plugin.activerecord.Record;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by DonaldY on 2018/5/9.
@@ -155,5 +152,39 @@ public class OrderService {
             payment = BigDecimalUtil.add(payment.doubleValue(), orderItem.getDouble("total_price"));
         }
         return payment;
+    }
+
+    public ServerResponse queryListByStatus(Integer userId, Integer status) {
+        Map map = new HashMap<Record, List<Record>>();
+        List<Record> orderList = null;
+        if (status == 0) {
+            orderList = this.orderDao.queryAllOrderList(userId);
+        } else {
+            orderList = this.orderDao.queryOrderListByStatus(userId, status);
+        }
+        for (Record order : orderList) {
+            List<Record> list = this.orderDao.queryOrderItemListByOrderNo(userId, order.getLong("order_no"));
+            order.set("count", list.size());
+            if (!list.isEmpty()) {
+                map.put(order, list);
+            }
+        }
+        return ServerResponse.createBySuccess(map);
+    }
+
+    public ServerResponse getContinueOrderByOno(Integer id, Long orderNo) {
+        Order order = this.orderDao.findContinueOrderByOno(id, orderNo);
+        if (null == order) {
+            return ServerResponse.createByError();
+        }
+        return ServerResponse.createBySuccess(order);
+    }
+
+    public ServerResponse closeOrderByOid(Integer id, Long orderNo) {
+        int count = this.orderDao.closeOrderByOid(id, orderNo);
+        if (count == 0) {
+            return ServerResponse.createByError();
+        }
+        return ServerResponse.createBySuccess();
     }
 }
