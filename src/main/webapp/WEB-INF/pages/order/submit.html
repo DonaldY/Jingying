@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>璟鹰建材</title>
+
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/order/submit.551811.css" rel="stylesheet"/></head>
+
+  
+  <body ontouchstart>
+
+    
+    <header class="common_hd">
+      <section class="hd_left">
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
+      </section>
+      <a href="/Jingying" class="hd_logo"></a>
+      <h1 class="hd_title">确认购买</h1>
+      <section class="hd_block">
+      </section>
+    </header>
+    
+
+    <section class="order_wrap">
+      
+      <section id="address-request" style="display: block; min-height: 57px;">
+  <ul class="addre_ul">
+    <% if (address == null) {%>
+    <li class="addre_li">
+      <span class="addre_icon_desc icon-location-address"></span>
+      <span id="">请填写收货地址</span>
+    </li>
+    <% } else { %>
+    <li class="addre_li" id="addre-data" data-addressid="${address.id}">
+      <span class="addre_icon_desc icon-location-address"></span>
+      <span id="addre-name">${address.rece_name}</span>
+      <span id="addre-phone">${address.rece_phone}</span>
+    </li>
+    <li class="addre_li" style="padding-top:5px;">
+      <% if (address.rece_default == true) { %>
+      <em>[默认]</em>
+      <% } %>
+      ${address.rece_address}
+    </li>
+    <% } %>
+  </ul>
+
+  <p class="addre_bottom_border"></p>
+</section>
+
+
+      <section class="info_list">
+	
+	<section class="product_wrap">
+  <ul class="product_ul">
+    
+    <% for ( item in list) { %>
+    <li class="product_li">
+      <img src="http://image.jingying.com${item.main_image}" class="product_li_img" >
+      <h2 class="product_li_title">${item.name}</h2>
+      <h3 class="product_li_spec">${item.spec_name}</h3>
+      <h2 class="product_li_money">
+	<span>￥${item.price}</span>
+	<span class="num">x${item.quantity}</span>
+      </h2>
+    </li>
+    <% } %>
+    
+  </ul>
+</section>
+
+
+	<section class="order_notice_wrap">
+	  <p>二十年信誉保证，祝您购物愉快</p>
+	  <p class="notice_tip">请仔细确认订单信息 (*^▽^*)</p>
+	  </div>
+	</section>
+
+	<section class="remark_wrap">
+	  <p>
+	    <em>留言</em>
+	    <input class="remark_words" placeholder="还想说些什么嘛">
+	  </p>
+	</section>
+
+	<section class="total_wrap">
+  <span>
+    共${totalCount}件商品 合计:
+    <em>￥${totalPrice}</em>
+  </span>
+</section>
+
+	
+      </section>
+
+      
+    </section>
+
+    <footer class="order_footer" >
+  <div class="order_footer_inner">
+    <a id="order-submit" data-addressid="">提交订单</a>
+    <p class="final_info">
+      应付总额:
+      <i class="i_pri">￥${totalPrice}</i>
+      <span class="num">共${totalCount}件商品</span>
+    </p>
+  </div>
+</footer>
+
+    
+    <section id="address-list" style="right:0;">
+  
+  <header class="common_hd" style="background-color: #f7f7f7;">
+    <section class="hd_left">
+      <span class="hd_back" id="address-list-close"></span>
+    </section>
+    <h1 class="hd_title">选择收货地址</h1>
+    <section class="hd_block"></section>
+  </header>
+  
+  <ul class="l_addre_ul">
+  </ul>
+
+  <footer id="addre-footer">
+    <a id="" data-href="">添加新地址</a>
+  </footer>
+  
+</section>
+
+    
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/order/submit.551811.js"></script></body>
+
+  
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>商品详情</title>
+
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/product/product.551811.css" rel="stylesheet"/></head>
+
+  
+  <body ontouchstart>
+    <header class="head_nav">
+  <div id="headNav" class="head_wrapper" >
+    <div class="head_bar" style="padding-left: 68px;top: auto;">
+      <a href="${ctx_path}/" id="head-logo"></a>
+      <a href="${ctx_path}/user">
+	<div class="head_login" id="go-center-btn">
+	  <% if (session.currentUser == null) {%>
+	  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA8UExURUxpcd7e3t3d3f///97e3t3d3d7e3t7e3uLi4t7e3t7e3t7e3t7e3v///93d3dzc3Obm5vb29uPj4/Dw8Jfd7sQAAAANdFJOUwAuLQbBjKP1Gd/ZfM6qo48wAAABLklEQVQ4y5WV2w6EIAxE6wWwGsvt//91ibsiLWCWiY8nOG2HAsA1H3rdjdlXfczwolkhFULVozdNlfTWABdlqCGjlurIlTpaxcETUlc4MdLQi0zBbkivwuxhET5t+iz3e9emOBii99ERg9Xv98yodeelyO1+LegWKVl9TZMb9Td6OmZhlk5tyOQZK7fYQz1DMXWf/kNpgoP+M0AHyOT5HqpBJipmNIiEwU4dB1GcsYPM1D0DX+UL6vj5xgDSEUYaSClpo8mADGD41eVFtlJZPCxFAySs+Qjc09WrCcGWIyiCFTh4OWbRwuyyJouRYRnCeLYUihDO9fSZBftEO/fgFdXsGgbXEruGt1vbFLvc1cporLhlfBGNrLeRpTmyikcW/MizMfQYfet7njhRDXwABplKjGosjLkAAAAASUVORK5CYII=" class="login_deco">
+	  <b>登录</b>
+	  <% } else { %>
+	  <img src="${session.currentUser.headimgurl}" class="login_deco">
+	  <% } %>
+	</div>
+      </a>
+    </div>
+  </div>
+</header>
+
+    
+    <section class="p_info">
+      
+      <section class="p_info_wrap">
+  <div id="p-info-item" class="swiper-container swiper-container-horizontal">
+    <article class="p_imgs_show swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+      
+      <% for (img in imgList) { %>
+      <div class="p_img_wrap swiper-slide">
+	<img src="http://image.jingying.com/${img}" class="img_deco">
+      </div>
+      <% } %>
+      
+      <!-- <div id="img-nums">2/5</div> -->
+      
+    </article>
+
+  </div>
+
+  
+  <div class="p_info_title_wrap">
+    <div class="title_name_wrap">
+      <h2 id="title-name" style="max-width:79%;">${productSpu.name}</h2>
+      <div id="share-by-link">
+	<em class="share_logo"></em>
+	<em class="copy_link">链接</em>
+      </div>
+    </div>
+    <div id="price-wrap">
+      <span id="p-price">
+	<em class="money_sign">￥</em>
+	<em class="price_str">
+	  <em>${parseInt(productSpu.min_price)}.</em>
+	  <em class="decimals">${parseInt(trunc(productSpu.min_price, 2) * 100) % 100}</em>
+	  <em>-</em>
+	  <em>${parseInt(productSpu.max_price)}.</em>
+	  <em class="decimals">${parseInt(trunc(productSpu.max_price, 2) * 100) % 100}</em>
+	</em>
+      </span>
+    </div>
+  </div>
+  
+</section>
+
+
+      <section id="p-spec-select-wrap">
+  <div id="spec-select">
+    <em class="spec_title" id="spec-title">选择&nbsp;商品型号</em>
+    <em class="spec_title_arrow">&nbsp;</em>
+  </div>
+</section>
+
+
+      <section class="p_info_detail">
+  <div class="p_tab_hd">
+    <ul class="p_tab_ul">
+      <li class="p_tab_li active_bottom" id="p-imgs-info">宝贝详情</li>
+      <li class="p_tab_li" id="p-detail-info">详细参数</li>
+    </ul>
+  </div>
+
+  <div class="p_tab_bd">
+    <div class="p_tab_imgs active">
+      <img class="detail_img lazy" src="https://si.geilicdn.com/bj-pc_diary-1224535927-1516073389817-500430043_790_1045.jpg?w=1080&amp;h=1080"  width="100%">
+      <img class="detail_img lazy" src="https://si.geilicdn.com/bj-pc_diary-1224535927-1516073389817-500430043_790_1045.jpg?w=1080&amp;h=1080"  width="100%">
+      <img class="detail_img lazy" src="https://si.geilicdn.com/bj-pc_diary-1224535927-1516073389817-500430043_790_1045.jpg?w=1080&amp;h=1080"  width="100%">
+    </div>
+    <div class="p_tab_spec">
+      <ul class="tab_spec_ul">
+	<li>
+	  <span class="spec_li_name">商品名称：</span>
+	  <span class="spec_li_val">45°弯头</span>
+	</li>
+	<li>
+	  <span class="spec_li_name">商品名称：</span>
+	  <span class="spec_li_val">45°弯头</span>
+	</li>
+	<li>
+	  <span class="spec_li_name">商品名称：</span>
+	  <span class="spec_li_val">45°弯头</span>
+	</li>
+	<li>
+	  <span class="spec_li_name">商品名称：</span>
+	  <span class="spec_li_val">45°弯头</span>
+	</li>
+      </ul>
+    </div>
+  </div>
+  
+</section>
+
+      
+
+      
+<section class="me_copyright">
+  <span>Donald 提供技术支持</span>
+</section>
+
+
+      <br/>
+      <br/>
+      <br/>
+      
+    </section>
+
+    <footer class="p_footer_nav">
+  <div class="btn_boxs">
+    <div class="box_wrap" id="btn-contact">
+      <span class="contact_deco icon-contact"></span>
+      <span class="contact_text">问问师傅</span>
+    </div>
+    <div class="box_wrap" id="btn-collect">
+      <span class="collect_deco icon-star"></span>
+      <span class="collect_text">收藏</span>
+    </div>
+  </div>
+  <div class="btn_add_cart_wrap ripple" id="btn-add-cart">
+    加入购物车
+  </div>
+  <div class="btn_buy_now ripple" id="btn-buy">
+    立即购买
+  </div>
+  
+</footer>
+
+
+    <section class="pop_menu_wrap" id="pop-menu" style="display: none;opacity: 0;z-index: 99;">
+  <div id="show-pop-menu">
+    <div class="pop_menu_inner">
+      <div class="pop_menu_info">
+	<img width="100" height="100" class="pop_info_img" src="http://image.jingying.com/${productSpu.main_image}">
+	<span class="pop_info_price">
+	  <span>￥</span>
+	  <span id="pop-info-price">${productSpu.min_price}-${productSpu.max_price}</span>
+	</span>
+	<div id="pop-menu-close" class="icon-close-pop">&nbsp;</div>
+      </div>
+
+      <div class="pop_select_wrap">
+	<div id="pop-select-info">
+	  <p class="pop_select_title">型号</p>
+	  <ul id="pop-select-ul">
+	    <% for (sku in skuList) { %>
+	    <li class="pop_select_li" data-skuId="${sku.id}" data-price="${sku.price}" data-stock="${sku.stock}">
+	      <span class="pop_span">${sku.spec_name}</span>
+	    </li>
+	    <% } %>
+	  </ul>
+	</div>
+	<div class="pop_select_num">
+	  <p class="pop_select_title">数量</p>
+	  <div id="pop-select-control">
+	    <em id="control-num-sub" style="left: 0;">-</em>
+	    <input type="text" name="product_num" id="product-num" class="input_num" value="1">
+	    <em id="control-num-add" style="right: 0;">+</em>
+	  </div>
+	  <div class="control_stock">
+	    库存<span id="control-stock" data-totalStock="${productSpu.stock}">${productSpu.stock}</span>件
+	  </div>
+	  <div class="clear"></div>
+	</div>
+      </div>
+      <a id="control-btn-confirm">确定</a>
+    </div>
+  </div>
+</section>
+
+
+
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/product/product.551811.js"></script></body>
+
+  
+</html>

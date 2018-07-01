@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+    <title>用户登录</title>
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/user/login.551811.css" rel="stylesheet"/></head>
+  
+  <body ontouchstart style="background-color: #fff;">
+    
+    <div class="login_content_wrap" style="display: block;">
+      
+      <div class="login_pwd_wrap" style="display: block;">
+	
+	<div class="login_header">
+	  <h4 class="login_content_h4 active">
+	    <span>账号密码登录</span>
+	  </h4>
+	  <h4 class="login_content_h4">
+	    <span>手机号快捷登录</span>
+	  </h4>
+	</div>
+	
+	<div id="multi-login-wrap">
+	  <div class="login_input_div">
+	    <div class="login_location_left">
+	      +86
+	    </div>
+	    <div id="login_pwd_right" class="right rel">
+	      中国
+	    </div>
+	    <div class="clear">  
+	    </div>
+	  </div>
+
+	  <form name="" method="post" action="login?from=${from}">
+
+  <div class="login_input_div flex">
+    <span class="input_title">用户</span>
+    <input type="text" id="login-username" name="username" class="login_input flex_auto" placeholder="填写用户名" maxlength="11">
+  </div>
+  
+  <div class="login_input_div flex">
+    <span class="input_title">密码</span>
+    <input type="password" id="login-pwd" name="password" class="login_input flex_auto" placeholder="6-16位登录密码" maxlength="16">
+  </div>
+  
+  <input type="submit" value="登录" id="login-submit">
+  <p class="login_forget_wrap">
+    <a>忘记密码</a>
+  </p>
+  
+</form>
+
+	  
+	</div>
+      </div>
+    </div>
+    
+    
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/user/login.551811.js"></script></body>
+
+  
+</html>

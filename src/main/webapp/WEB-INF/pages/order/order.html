@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>我的订单</title>
+
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/order/order.551811.css" rel="stylesheet"/></head>
+
+  
+  <body ontouchstart>
+
+    
+    <header class="common_hd">
+      <section class="hd_left">
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
+      </section>
+      <a href="/Jingying" class="hd_logo"></a>
+      <h1 class="hd_title">我的订单</h1>
+      <section class="hd_block">
+      </section>
+    </header>
+
+    <section class="order_select_bar" id="order-tab">
+      <ul>
+	
+	<li tab-index="0" data-spider-action-name="全部">
+	  <a href="/Jingying/order/list?status=0" class="curr_a">全部</a>
+	</li>
+	
+	<li tab-index="1" data-spider-action-name="待付款">
+	  <a href="/Jingying/order/list?status=10">待付款</a>
+	</li>
+	
+	<li tab-index="2" data-spider-action-name="待发货">
+	  <a href="/Jingying/order/list?status=20">待发货</a>
+	</li>
+	
+	<li tab-index="3" data-spider-action-name="待收货">
+	  <a href="/Jingying/order/list?status=40">待收货</a>
+	</li>
+	
+	<li tab-index="4" data-spider-action-name="待评价">
+	  <a href="/Jingying/order/list?status=50">待评价</a>
+	</li>
+
+      </ul>
+    </section>
+
+    <div class="order_list">
+
+      <% for (entry in orderMap) {
+var order = entry.key;
+var list = entry.value;
+%>
+<div class="order_wrap">
+  
+  <h2 class="order_list_title">
+    <span class="order_status">
+      <% if (order.status == 0) {%>
+      已取消
+      <% } else if (order.status == 10) {%>
+      未付款
+      <% } else if (order.status == 20) {%>
+      已付款
+      <% } else if (order.status == 40) {%>
+      已发货
+      <% } else if (order.status == 50) {%>
+      交易成功
+      <% } else if (order.status == 60) {%>
+      交易失败
+      <% } %>
+    </span>
+  </h2>
+  
+  <div class="order_list_item">
+    
+    <% for (item in list) { %>
+    <div class="l_item_wrap">
+      
+      <div class="flex">
+	<div class="flex_item">
+	  <img class="flex_img" src="http://image.jingying.com${item.product_image}">
+	</div>
+	
+	<div class="flex_auto l_item_info">
+	  <div class="flex">
+	    
+	    <div class="flex_auto">
+	      <span class="l_item_name">${item.product_name}</span>
+	      <p class="l_item_sku"></p>
+	    </div>
+	    
+	    <div class="flex_item">
+	      <div class="item_price">¥${item.curr_unit_price}</div>
+	      <div class="item_count">×${item.quantity}</div>
+	    </div>
+	    
+	  </div>
+	</div>
+	
+      </div>
+    </div>
+    <% } %>
+    
+  </div>
+
+  <p class="order_total_price">
+    <span class="order_price_wrap">
+      共${order.count}件商品 总价:
+      <em class="p_price">¥${order.payment}</em>
+      <em class="p_express_fee">(含运费¥0.00)</em>
+    </span>
+  </p>
+
+
+  <div class="order_action clearfix" >
+    <% if (order.status == 10) {%>
+    <a href="${ctx_path}/order/continuePay?oNo=${order.order_no}">
+      <span class="btn" style="border-color: #C60A1E;color: #C60A1E;" id="btn-continue-pay">继续支付</span>
+    </a>
+    <% } %>
+    <% if (order.status == 10 || order.status == 20) {%>
+    <a href="${ctx_path}/order/close?oNo=${order.order_no}">
+      <span class="btn" id="btn-close">关闭订单</span>
+    </a>
+    <% } %>
+  </div>
+  
+</div>
+<% } %>
+
+      
+    </div>
+    
+    
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/order/order.551811.js"></script></body>
+
+  
+</html>

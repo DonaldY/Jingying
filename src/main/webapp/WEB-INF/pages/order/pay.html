@@ -1,0 +1,62 @@
+<!doctype html>
+<html style="font-size: 36px;">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>收银台</title>
+
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/order/pay.551811.css" rel="stylesheet"/></head>
+
+  
+  <body ontouchstart>
+
+    
+    <header class="common_hd">
+      <section class="hd_left">
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
+      </section>
+      <a href="/Jingying" class="hd_logo"></a>
+      <h1 class="hd_title">收银台</h1>
+      <section class="hd_block">
+      </section>
+    </header>
+
+
+    <div class="pay_info_wrap">
+      
+      <div class="pay_info_wrap">
+
+	<div class="pay_info_container">
+  <p class="pay_info_p1">支付金额</p>
+  <p class="pay_info_price">
+    <span id="final-price">￥${order.payment}</span>
+  </p>
+  <p class="pay_info_p1" id="item-title">订单号: ${order.order_no}</p>
+</div>
+
+	
+	<ul class="pay_way_list">
+	  <li class="pay_way_card _alipay selected">
+	    <h2>支付宝</h2>
+	    <span class="select icon-check"></span>
+	  </li>
+	</ul>
+	
+	<button id="pay-now">立即支付</button>
+      </div>
+      
+      <footer class="pay_info_footer">
+	<a href="#" data-spider-action-name="支付常见问题">支付常见问题</a>
+	<p>版权所有©2017-2018 璟鹰</p>
+      </footer>
+      
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/order/pay.551811.js"></script></body>
+
+  
+</html>

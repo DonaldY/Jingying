@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>个人信息</title>
+
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/user/setting.551811.css" rel="stylesheet"/></head>
+  
+  <body ontouchstart>
+    <header class="common_hd">
+      <section class="hd_left">
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
+      </section>
+      <a href="/Jingying" class="hd_logo"></a>
+      <h1 class="hd_title">个人信息</h1>
+      <section class="hd_block">
+      </section>
+    </header>
+
+	<section class="user_info_wrap">
+  <div class="info_img_wrap info_wrap editable">
+    <span class="flex_auto">头像</span>
+
+    <% if (userInfo.headimgurl == null) {%>
+    <img class="pre_img" src="${require('../../../../imgs/no-login.png')}">
+    <% } else { %>
+    <img class="pre_img" src="${userInfo.headimgurl}">
+    <% } %>
+    <label for="capture"></label>
+  </div>
+  <div class="info_nickname_wrap info_wrap editable">
+    <span class="flex_auto">昵称</span>
+    <span id="nickname-txt" class="info">${userInfo.nickname}</span>
+  </div>
+  <div class="info_tel_wrap info_wrap editable">
+    <span class="flex_auto">手机号</span>
+
+    <% if (userInfo.phone == null) {%>
+    <span class="tel-num" class="info" style="color: #ccc;">还不知道你的手机号诶~</span>
+    <% } else { %>
+    <span class="tel-num" class="info">${userInfo.phone}</span>
+    <% } %>
+    
+  </div>
+</section>
+
+<div id="btn-quit" class="ripple"><a href="${ctx_path}/user/quit">退出登录</a></div>
+
+    
+    
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/user/setting.551811.js"></script></body>
+
+  
+</html>

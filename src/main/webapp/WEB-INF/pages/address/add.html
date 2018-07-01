@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+    <title>新建收获地址</title>
+
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/address/add.551811.css" rel="stylesheet"/></head>
+
+  
+  <body ontouchstart>
+    
+    <header class="common_hd">
+      <section class="hd_left">
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
+      </section>
+      <a href="/Jingying" class="hd_logo"></a>
+      <h1 class="hd_title">新建收获地址</h1>
+      <section class="hd_block"></section>
+    </header>
+
+
+    <div class="address_wrap">
+  <div id="address-form" style="margin:10px 0;background:#fff;padding: 0 10px 10px;">
+    <form action="${ctx_path}/address/add" method="post">
+      <p class="address_p rel">
+	<label for="nam" class="abs">收货人</label>
+	<input type="text" id="Js-name" name="rece_name" class="block input" value="" tabindex="1" placeholder="请输入收货人姓名">
+      </p>
+      <div class="address_country">
+	<div class="abs c-code">+<span id="Js-c-code">86</span>
+	</div>
+	<div class="abs c-name" id="Js-c-name">中国</div>
+      </div>
+      <p class="address_p rel">
+	<label for="tele" class="abs">手机号码</label>
+	<input type="tel" id="Js-tel" name="rece_phone" maxlength="20" class="block input" tabindex="2" value="" placeholder="请输入收货人手机号">
+      </p>
+      <!-- <p class="address_p rel">
+	   <label for="province" class="abs">所在地区</label>
+	   <span class="address" id="Js-address">--请选择--</span>
+	   </p> -->
+      <p class="address_p rel address_p_area">
+	<label for="detail_add" class="abs">详细地址</label>
+	<input name="rece_address" cols="" rows="" id="Js-detail-address" class="block input" tabindex="6" placeholder="请输入街道地址">
+      </p>
+      <div class="default">
+	<span class="setTxt">设为默认地址</span>
+	<div class="switch switch-checked" curtype="1" id="Js-set-default">
+	  <span class="switch-inner"></span>
+	</div>
+      </div>
+    </form>
+    
+  </div>
+</div>
+
+    
+    <footer class="footer">
+      <div class="save-btn" id="Js-save-address">保存并使用</div>
+    </footer>
+    
+    
+    <script type="text/javascript">
+     
+    </script>    
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/address/add.551811.js"></script></body>
+
+  
+</html>

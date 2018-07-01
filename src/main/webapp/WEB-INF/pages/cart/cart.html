@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+    <title>购物车</title>
+
+  <link href="${ctx_path}//css/commons/common.551811.css" rel="stylesheet"/><link href="${ctx_path}//css/cart/cart.551811.css" rel="stylesheet"/></head>
+
+  
+  <body ontouchstart>
+    
+    <header class="common_hd">
+      <section class="hd_left">
+	<a href="javascript:history.go(-1)" class="hd_back"></a>
+      </section>
+      <a href="/Jingying" class="hd_logo"></a>
+      <h1 class="hd_title">购物车</h1>
+      <section class="hd_block"></section>
+    </header>
+
+    <section class="C_list">
+      <section class="C_list_wrapper">
+	
+	<section class="C_list_bar">
+	  <mark class="mask select_all">
+	    <span class="round icon-check">&nbsp;</span>
+	  </mark>
+	  <h1 class="bar_title">全选</h1>
+	  <section class="bar_block"></section>
+	  <section class="shop_edit">编辑</section>
+	</section>
+	
+      </section>
+      
+      <section class="">
+	<ul class="C_goods_list"></ul>
+      </section>
+
+      <br/>
+      <br/>
+      <br/>
+      
+    </section>
+	
+    
+    <footer class="flex C_footer">
+      <section class="flex select_all">
+	<span class="select_radio icon-check"></span>
+	<span class="select_text">全选</span>
+      </section>
+      <section class="sum_info flex">
+	<p class="total_price">
+	  <span class="total_price_label">总计:</span>
+	  <span class="price_font">¥<em id="total-price">0</em></span>
+	</p>
+	<p class="total_price">
+	  <span class="price_font"></span>
+	</p>
+      </section>
+      <section class="buy_wrap flex">
+	<span class="buy_btn disabled">去结算(0)</span>
+      </section>
+    </footer>
+
+    
+    <script type="text/javascript">
+     
+    </script>    
+  <script type="text/javascript" src="${ctx_path}/js/commons/common.551811.js"></script><script type="text/javascript" src="${ctx_path}/js/cart/cart.551811.js"></script></body>
+
+  
+</html>
