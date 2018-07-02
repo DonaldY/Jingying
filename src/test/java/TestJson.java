@@ -1,4 +1,5 @@
 import com.alibaba.fastjson.JSON;
+import com.jfinal.plugin.activerecord.Page;
 import org.junit.Test;
 
 import java.util.Map;
@@ -18,5 +19,10 @@ public class TestJson {
         for (Object map : maps.entrySet()){
             System.out.println(((Map.Entry)map).getKey()+"     " + ((Map.Entry)map).getValue());
         }
+    }
+    
+    @Test
+    public void test() {
+      
     }
 }
